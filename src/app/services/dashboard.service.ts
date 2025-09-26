@@ -4,17 +4,20 @@ import { Portfolio } from '../models/portfolio';
 import { Category } from '../models/category';
 import { Message } from 'primeng/api';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class DashboardService {
-  private readonly urlApi = "http://localhost:3000/portfolio/";
-  private readonly categoryApi = 'http://localhost:3000/category/';
-  private readonly msgApi = 'http://localhost:3000/msg/';
-  private readonly emailApi = 'http://localhost:3000/send/';
-  private readonly cvApi = 'http://localhost:3000/cv/';
+  private readonly baseUrl = environment.apiUrl; // ✅ baseUrl configurable
+  private readonly urlApi = `${this.baseUrl}/portfolio/`;
+  private readonly categoryApi = `${this.baseUrl}/category/`;
+  private readonly msgApi = `${this.baseUrl}/msg/`;
+  private readonly emailApi = `${this.baseUrl}/send/`;
+  private readonly cvApi = `${this.baseUrl}/cv/`;
+  private readonly uploadApi = `${this.baseUrl}/upload`;
   constructor(private readonly http: HttpClient){}
 
   /**********Portfolio Section************/
