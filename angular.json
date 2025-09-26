@@ -30,7 +30,8 @@
                   "glob": "**/*",
                   "input": "./node_modules/pspdfkit/dist/pspdfkit-lib/",
                   "output": "./assets/pspdfkit-lib/"
-               }
+               },
+               "src/_redirects"
             ],
             "styles": [
               "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
