@@ -1,0 +1,276 @@
+<div class="bgEee">.</div>
+
+<div class="portfolios">
+    <app-header portfolioActive="active"></app-header>
+
+    <div class="btn-actions">
+        <p-button 
+            *ngIf="!onUpdate"
+            (click)="togglePages()"
+            [icon]="onList ? 'pi pi-plus': 'pi pi-times'" 
+            [styleClass]="onList ? 'p-button-rounded p-button-success' : 'p-button-rounded p-button-secondary'"></p-button>
+
+        <p-button 
+            *ngIf="onUpdate"
+            (click)="toggleUpdate()"
+            [icon]="onList ? 'pi pi-plus': 'pi pi-times'" 
+            [styleClass]="onList ? 'p-button-rounded p-button-success' : 'p-button-rounded p-button-secondary'"></p-button>    
+    </div>
+
+    <div *ngIf="onList" class="p-table">
+        <p-table 
+            [paginator]="true"
+            [rows]="4" 
+            [value]="portfolios">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th>Name</th>
+                    <th style="width: 10rem">
+                        Actions
+                    </th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-portfolios>
+                <tr>
+                    <td>{{ portfolios.title }}</td>
+                    <td>
+                        <p-button 
+                            icon="pi pi-pencil" 
+                            styleClass="p-button-rounded"
+                            (click)="setUpdatePort(portfolios)"></p-button>
+                        <p-button
+                            icon="pi pi-trash"         
+                            styleClass="p-button-rounded p-button-danger"
+                            (click)="confirm1(portfolios)"></p-button>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="summary">
+                <div style="text-align:left">
+                    <p-button 
+                        icon="pi pi-refresh" 
+                        label="Reload"
+                        (click)="ngOnInit()">
+                    </p-button>
+                </div>
+            </ng-template>
+
+        </p-table>
+    </div>
+
+    <div *ngIf="onAdd" class="container">
+        <div class="row inputSection">
+            <div class="col-lg-6 setcoladdsectioninput">
+                <div class="textString">
+                    <input pInputText placeholder="Title" [(ngModel)]="title"/>
+                </div>
+    
+                <div class="textString">
+                    <input pInputText placeholder="Github Url" [(ngModel)]="github"/>
+                </div>
+
+                <div class="textString textStringdropDown">
+                    <div class="row">
+                        <div class="col-lg-6 cat-col-l">
+                            <p-dropdown 
+                                class="calendar"
+                                [options]="cats" 
+                                placeholder="Choisir"
+                                [(ngModel)]="selectedCat" 
+                                optionLabel="name">
+                        </p-dropdown>
+                        </div>
+                        <div class="col-lg-6 cat-col-s btn-plus">
+                            <div class="button">
+                                <p-button 
+                                    icon="pi pi-plus"
+                                    data-bs-toggle="modal" data-bs-target="#categoryModal"></p-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="textString">
+                    <textarea 
+                        [(ngModel)]="resume"
+                        placeholder="Description"
+                        rows="5" cols="30" 
+                        pInputTextarea [autoResize]="true"></textarea>
+                </div>
+
+                <div class="textString">
+                    <p-chips [(ngModel)]="hashtags" placeholder='Technologies'></p-chips>
+                </div>
+    
+                <div class="textString editor">
+                    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="desc"></angular-editor>
+                </div>
+            </div>
+            <div class="col-lg-6 setcoladdsectionupload">
+                <div class="textString hidebtn">
+                    <p-fileUpload #fileUploadComponent name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" 
+                        (onRemove)="onRemoveCovers($event)"
+                        (onSelect)="onFileSelected($event)" [multiple]="true" accept="image/*">
+                    </p-fileUpload>
+                </div>
+
+                <div class="textString hidebtn">
+                    <p-fileUpload #fileUploadComponent2 name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" 
+                        (onRemove)="onRemoveImages($event)"
+                        (onSelect)="onImageSelected($event)" [multiple]="true" accept="image/*">
+                    </p-fileUpload>
+                </div>
+
+                <div class="textString">
+                    <button 
+                        (click)="addPortfolio()"
+                        pButton pRipple label="Save"
+                        class="p-button-primary float-end"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="onUpdate" class="container">
+        <div class="row inputSection">
+            <div class="col-lg-6 setcoladdsectioninput">
+                <div class="textString">
+                    <input pInputText placeholder="Title" [(ngModel)]="title"/>
+                </div>
+    
+                <div class="textString">
+                    <input pInputText placeholder="Github Url" [(ngModel)]="github"/>
+                </div>
+
+                <div class="textString textStringdropDown">
+                    <div class="row">
+                        <div class="col-lg-6 cat-col-l">
+                            <p-dropdown 
+                                class="calendar"
+                                [options]="cats" 
+                                placeholder="Choisir"
+                                [(ngModel)]="selectedCat" 
+                                optionLabel="name">
+                        </p-dropdown>
+                        </div>
+                        <div class="col-lg-6 cat-col-s btn-plus">
+                            <div class="button">
+                                <p-button 
+                                    icon="pi pi-plus"
+                                    data-bs-toggle="modal" data-bs-target="#categoryModal"></p-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="textString">
+                    <textarea 
+                        [(ngModel)]="resume"
+                        placeholder="Description"
+                        rows="5" cols="30" 
+                        pInputTextarea [autoResize]="true"></textarea>
+                </div>
+
+                <div class="textString">
+                    <p-chips [(ngModel)]="hashtags" placeholder='Technologies'></p-chips>
+                </div>
+    
+                <div class="textString editor">
+                    <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="desc"></angular-editor>
+                </div>
+            </div>
+            <div class="col-lg-6 setcoladdsectionupload">
+                <div class="textString card">
+                    <div class="hidebtn">
+                        <p-fileUpload #fileUploadComponent name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" 
+                            (onRemove)="onRemoveCovers($event)"
+                            (onSelect)="onFileSelected($event)" [multiple]="true" accept="image/*">
+                        </p-fileUpload> 
+                    </div>
+
+                    <div class="upload-container" *ngFor="let img of coversName">
+                        <div class="row">
+                            <div class="col-lg-4 setcoladdsectionimg">
+                                <img class="imgupload" [src]="'assets/uploads/'+ img" />
+                            </div>
+                            <div class="col-lg-4 setcoladdsectionname">
+                                <p>{{img}}</p>
+                            </div>
+                            <div class="col-lg-4 setcoladdsectionbtn">
+                                <p-button 
+                                    (click)="onRemoveCoversName(img)"
+                                    icon="pi pi-times float-end"></p-button>
+                            </div>
+                        </div>   
+                    </div>
+ 
+                </div>
+
+                <div class="textString card">
+
+                    <div class="hidebtn">
+                        <p-fileUpload #fileUploadComponent2 name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" 
+                            (onRemove)="onRemoveImages($event)"
+                            (onSelect)="onImageSelected($event)" [multiple]="true" accept="image/*">
+                        </p-fileUpload>
+                    </div>
+
+
+
+                    <div class="upload-container" *ngFor="let img of imagesName">
+                        <div class="row">
+                            <div class="col-lg-4 setcoladdsectionimg">
+                                <img class="imgupload" [src]="'assets/uploads/'+ img" />
+                            </div>
+                            <div class="col-lg-4 setcoladdsectionname">
+                                <p>{{img}}</p>
+                            </div>
+                            <div class="col-lg-4 setcoladdsectionbtn">
+                                <p-button 
+                                    (click)="onRemoveImagesName(img)"
+                                    icon="pi pi-times float-end"></p-button>
+                            </div>
+                        </div>   
+                    </div>
+
+                </div>
+
+                <div class="textString">
+                    <button 
+                        (click)="updatePort()"
+                        pButton pRipple label="Update"
+                        class="p-button-primary float-end"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---------------Modal Section------------------->
+    <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input class="categoryInput" pInputText placeholder="Category" [(ngModel)]="category"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button 
+                        (click)="addCat()"
+                        data-bs-dismiss="modal"
+                        type="button" 
+                        class="btn btn-success">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-toast></p-toast>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+

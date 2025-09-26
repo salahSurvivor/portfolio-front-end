@@ -1,0 +1,64 @@
+<div class="bgEee">.</div>
+
+<div class="portfolios">
+    <app-header messagesActive="active"></app-header>
+
+    <div class="p-table">
+        <p-table 
+            [paginator]="true"
+            [rows]="4" 
+            [value]="msgs">
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Subject</th>
+                    <th style="width: 8rem">
+                        Actions
+                    </th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-msgs>
+                <tr>
+                    <td>{{ msgs.name }}</td>
+                    <td>{{ msgs.email }}</td>
+                    <td>{{ msgs.subject }}</td>
+                    <td>
+                        <p-button 
+                            (click)="getMsgInfo(msgs)"
+                            icon="pi pi-eye" 
+                            styleClass="p-button-rounded"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        ></p-button>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="summary">
+                <div style="text-align:left">
+                    <p-button 
+                        icon="pi pi-refresh" 
+                        label="Reload"
+                        (click)="ngOnInit()">
+                    </p-button>
+                </div>
+            </ng-template>
+
+        </p-table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                {{message}}
+            </div>
+        </div>
+        </div>
+    </div>
+
+</div>  
+
+

@@ -1,0 +1,27 @@
+<div class="register-form">
+    <form (ngSubmit)="onLogin()">
+        <h1>Connexion</h1>
+        <div class="input-text">
+            <label>Username</label>
+            <input 
+            type="text"
+            name="name"
+            pInputText [(ngModel)]="name" />
+        </div>
+
+        <div class="input-text">
+            <label>Password</label>
+            <input 
+            type="password"
+            name="password"
+            pInputText [(ngModel)]="password" />
+        </div>
+
+        <p-button 
+            type="submit"
+            label="Connexion" 
+            styleClass="p-button-outlined p-button-success"></p-button>
+    </form>
+</div>
+
+<p-toast></p-toast>

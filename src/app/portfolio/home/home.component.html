@@ -1,0 +1,480 @@
+<div class="home" *ngIf="onHome">
+    <!--Start Our Navbar-->
+    <div class="navbar-container">
+        <div class="img-cover">
+            <div class="find-me-on mx-auto">  
+              <div class="border-img-container">
+                <div class="my-info">
+                  <h3 class='mx-auto'>SALAHEDDINE NAJI</h3>
+                  <label>Full Stack Developer</label>
+                  <div class="icon">     
+                    <a href="https://www.linkedin.com/in/salaheddine-naji-262502229/" target="_blank"><i class="fa-brands fa-linkedin hvr-pop"></i></a>
+                    <a href="https://github.com/salahSurvivor" target="_blank"><i class="fa-brands fa-github hvr-pop"></i></a>
+                    <a href="https://twitter.com/salahSurvivor" target="_blank"><i class="fa-brands fa-twitter hvr-pop"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="myimg_circle mx-auto">
+                <img src="assets/img/me.jpeg" class='mx-auto d-block align-middle'/> 
+              </div>
+            </div>
+        </div>
+        
+          <nav class="navbar fixed-top navbar-dark navbar-expand-lg">
+              <div class="container container-edit fixed-top">
+                  <a class="navbar-brand wow flip" (click)="switchOnHome()"><em>S.N</em></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">HOME</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" (click)="switchPorftolio()" id="prt">PORTFOLIO</a>
+                      </li>
+                    </ul>
+                  </div>
+              </div>
+          </nav> 
+    </div> 
+    <!--End Our Navbar-->
+    
+    <!--Start Our Portfolio-->
+    <div class="portfolio_container d-block align-center" id="prt">
+        <h3>My Portfolio</h3>
+        <div class="container d-flex justify-content-center">
+          <div class="row">
+              <a *ngFor="let port of portAll | slice:0:3" (click)="setPostDet(port)" class='portfolio'>
+                  <div class="portfolio wow bounceInUp col-lg-4 col-md-6  col-sm-12 col-xs-12 mx-auto">
+                      <img [src]="'assets/uploads/'+ port.cover[1]"/>
+                      <div class="about-the-site mx-auto">
+                          <h4>{{ port.title }}</h4>
+                          <p>
+                            {{ port.resume }}
+                          </p>
+                      </div>
+                  </div>
+              </a>
+          </div>
+        </div>
+
+        <a href="javascript:void(0)" class="mx-auto text-white">
+          <label class="green-btn" (click)="switchPorftolio()">MORE</label>
+        </a>  
+    </div>
+    <!--End Our Portfolio-->
+    
+    <!--Start About Me-->
+    <div class="about-me-container" id="abt">
+      <h3 class="mx-auto">ABOUT ME
+        <div class="title-line"></div>
+      </h3>
+      <div class="container">
+        <div class="row">
+          <div class="about-me-sec col-lg-6 col-md-12 d-flex justify-content-center wow pulse">
+            <img src="assets/img/me.jpeg"/>
+          </div>
+          <div class="about-me-sec two-section col-lg-6 col-md-12 wow pulse">
+            <h4>Hello I Am Salaheddine Naji
+              <div class="title-line"></div>
+            </h4>
+            <p>
+              i'm a Freelance Full Stack Developer, and i'm very passionate and 
+              dedicated to my work. with 3 years experience as a professional
+              full stack developer, i have acquired the skills neceessary to build 
+              great and premiun websites
+            </p>
+            <div class="carte-visite">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-6">
+                        <p>Name : Salaheddine Naji</p>
+                        <p>Phone : +212777372379</p>
+                        <p>Experience : 3 years</p>
+                        <p>github : salahSurvivor</p>
+                  </div>
+                  <div class="col-lg-6">
+                        <p>Age : 22</p>
+                        <p>Adress : Rue Haha N98 bettana salé</p>
+                        <p>Freelance: Availlable</p>
+                        <p>Linkedin : salaheddine naji</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="javascript:void(0)">
+              <label class="green-button" (click)="downloadPdf()">DOWNLOAD CV</label>
+            </a>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End About Me-->
+
+    <!--Start My Skills-->
+    <div class="my-skills-container" id="skt">
+      <div class="container">
+        <div class="row">
+          <h3 class="service-brand">
+            MY SERVICE
+            <div class="title-line"></div>
+          </h3>
+          <div class="my-service col-lg-3">
+            <div class="font">
+              <i class="fa-solid fa-pen-clip"></i>
+            </div>
+            <div class="font-desc">
+              <div class="font-desc-title">Creative Design</div>
+              <p>
+                i can build any website you can imagine with the full power of HTML, 
+                CSS, and Javascript
+              </p>
+            </div>
+          </div>
+          <div class="my-service col-lg-3">
+            <div class="font">
+              <i class="fa-solid fa-file-pen"></i>
+            </div>
+            <div class="font-desc">
+              <div class="font-desc-title">Define</div>
+              <p>
+                I brainstorm possible design solutions to the identified problem.
+              </p>
+            </div>
+          </div>
+          <div class="my-service col-lg-3">
+            <div class="font">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="font-desc">
+              <div class="font-desc-title">Clean Code</div>
+              <p>
+                I create clean code that any developer can understand in case 
+                they want to change something <br> in it
+              </p>
+            </div>
+          </div>
+          <div class="my-service col-lg-3">
+            <div class="font">
+              <i class="fa-solid fa-shapes"></i>
+            </div>
+            <div class="font-desc">
+              <div class="font-desc-title">Prototype</div>
+              <p>
+                I create high fidelity design and prototype the screens.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--End My Skills-->
+    
+    <!--Start What I know-->
+    <div class="what-i-know">
+        <div class="container">
+            <div class="row">
+                <div class="progress col-lg-6 mx-auto">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 104%"  >
+                        <label>HTML</label>
+                    </div>
+                </div>
+                <div class="progress col-lg-6 mx-auto">
+                    <div class="progress-bar bg-danger" style="width: 100%" >
+                        <label>Css</label>
+                    </div>
+                </div>
+                <div class="progress col-lg-6 mx-auto">
+                    <div class="progress-bar bg-info" style="width: 100%" >
+                        <label>Java Script</label>
+                    </div>
+                </div>
+                <div class="progress col-lg-6 mx-auto">
+                    <div class="progress-bar bg-warning" style="width: 100%" >
+                        <label>bootstrap</label>
+                    </div>
+                </div>
+                <div class="progress col-lg-6 mx-auto">
+                    <div class="progress-bar bg-secondary" style="width: 100%" >
+                        <label>Angular</label>
+                    </div>
+                </div>
+                <div class="progress col-lg-6 mx-auto">
+                    <div class="progress-bar bg-primary" style="width: 90%" >
+                        <label>Reactjs</label>
+                    </div>
+                </div>
+                <div class="progress col-lg-6 mx-auto">
+                    <div class="progress-bar bg-danger" style="width: 100%" >
+                        <label>Nodejs</label>
+                    </div>
+                </div>
+                <div class="progress col-lg-6 mx-auto">
+                    <div class="progress-bar bg-success" style="width: 100%" >
+                        <label>Mangodb</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End What I know-->
+    
+    <!--Start My Resume-->
+    <div class="my-resume-container" id="rsm">
+        <div class="container">
+            <div class="row">
+                <h3>
+                MY RESUME
+                <div class="title-line"></div>
+                </h3>
+                <div class="my-resume col-lg-6">
+                <div class="title-info-back wow bounce">
+                    <div class="my-resume-title">Baccalaureate En 2018-2019</div>
+                    <div class="my-resume-info">
+                    I got my baccalaureate en 2019 in moulay tayeb alaoui 
+                    high school in morocco in salé city
+                    </div>
+                </div>
+                </div>
+                <div class="my-resume col-lg-6">
+                <div class="title-info-back wow bounce">
+                    <div class="my-resume-title">Diploma En IT Development 2019-2021</div>
+                    <div class="my-resume-info">
+                    I got my diploma en IT Development in 2021 from Specialized 
+                    Institute of Applied Technology in morocco in salé city 
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End My Resume-->
+    
+    <!--Start Contact Me-->
+    <div class="contact-me-container" id="cntct">
+        <div class="container">
+            <div class="row">
+                <h3>
+                CONTACT ME
+                <div class="title-line mx-auto"></div>
+                </h3>
+                <div class="contact-me col-lg-6 mx-auto bounceIn">
+                <div class="option">
+                    <div class="container">
+                    <div class="row">
+                        <div class="option-desc col-lg-6">
+                        <h4>LOCATION</h4>
+                        <p>Rue Haha N98</p>
+                        <p>Bettana Salé</p>
+                        </div>
+                        <div class="option-font col-lg-6">
+                        <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="container">
+                    <div class="row">
+                        <div class="option-desc col-lg-6">
+                        <h4>EMAIL</h4>
+                        <p>njsalahsn@gmail.com</p>
+                        </div>
+                        <div class="option-font col-lg-6">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="container">
+                    <div class="row">
+                        <div class="option-desc col-lg-6">
+                        <h4>PHONE</h4>
+                        <p>+212777372379</p>
+                        </div>
+                        <div class="option-font col-lg-6">
+                        <i class="fa-solid fa-phone"></i>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="contact-me contact-me-edit col-lg-6 mx-auto bounceIn">
+                <input 
+                  type="text" 
+                  class="form-control bg-dark text-white" 
+                  placeholder="Name"
+                  [(ngModel)]="name"/>
+                <input 
+                  type="email" 
+                  class="form-control bg-dark text-white" 
+                  placeholder="name@example.com"
+                  [(ngModel)]="email">
+                <input 
+                  type="text" 
+                  class="form-control bg-dark text-white" 
+                  placeholder="Subject"
+                  [(ngModel)]="subject"/>
+                <textarea 
+                  class="form-control bg-dark text-white" 
+                  id="exampleFormControlTextarea1"
+                  placeholder="Your Message" rows="6"
+                  [(ngModel)]="message"></textarea>
+                <label 
+                  class="green-button"
+                  (click)="addMessage()">SEND MESSAGE</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Start Contact Me-->
+    
+    <!--Start Copyright-->
+    <div class="copyright-container">
+      <div class="wow rotateIn">
+        salahSurvivor <i class="fa-solid fa-copyright"></i>
+        2022 Made By Love <i class="fa-solid fa-heart"></i>
+      </div>
+    </div>
+    <!--End Copyright-->
+</div>
+
+<div class="portfolios changebg" *ngIf="onPortfolio">
+  <nav class="navbar portnav navbar-light navbar-expand-md navigation-clean">
+    <div class="container"><a class="navbar-brand wow flip" (click)="switchOnHome()"><em>S.N</em></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav">
+              <div class="li-container">
+                <li class="nav-item">
+                  <a class="nav-link {{portfolios}}" (click)="switchPorftolio()">PORTFOLIO</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{home}}" (click)="switchOnHome()">HOME</a>
+                </li>
+              </div>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+    <div class="fixSpace"></div>
+    <div class="filter-section col-lg-6 col-editS">
+        <div class="filter">
+            <div class="cat">
+                <label>All</label>
+                <label class="input-radio">
+                    <p-radioButton 
+                      (click)="ngOnInit()"
+                      name="cat" value="All" 
+                      [(ngModel)]="cat" inputId="ingredient1"></p-radioButton>
+                </label>
+            </div>
+            <div class="cat" *ngFor="let ct of category | slice:0:3">
+                <label>{{ct.name}}</label>
+                <label class="input-radio">
+                    <p-radioButton 
+                      (click)="filterCat(ct)"
+                      name="cat" [value]="ct.name" 
+                      [(ngModel)]="cat" inputId="ingredient1"></p-radioButton>
+                </label>
+            </div>
+        </div>
+        <div class="filter">
+            <div class="cat">
+                <label class="d-block">Project Name</label>
+                <input 
+                  class="d-block" type="text" 
+                  pInputText [(ngModel)]="value" (ngModelChange)="filterCat('')" />
+            </div>
+        </div>
+    </div>
+    <div class="portfolio-section col-editL">
+        <div class="container-fuild">
+            <div class="project row" *ngFor="let portfolio of port">
+                <div class="col-lg-6 project-img col-md-12">
+                    <div class="img-card">
+                        <img [src]="'assets/uploads/'+ portfolio.cover[0]" />
+                    </div>
+                </div>
+                <div class="col-lg-6 project-desc col-md-12">
+                    <div class="descmg">
+                        <h3 (click)="setPostDet(portfolio)">{{portfolio.title}}</h3>
+                        <p>
+                          {{portfolio.resume}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfoldetPort" *ngIf="onPortfolioDetails">
+  <nav class="navbar portnav navbar-light navbar-expand-md navigation-clean">
+    <div class="container"><a class="navbar-brand wow flip" (click)="switchOnHome()"><em>S.N</em></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav">
+              <div class="li-container">
+                <li class="nav-item">
+                  <a class="nav-link {{portfolios}}" (click)="switchPorftolio()">PORTFOLIO</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{home}}" (click)="switchOnHome()">HOME</a>
+                </li>
+              </div>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+  <div class="container-fuild det">
+    <div class="title">
+      <h1>Posting App</h1>
+    </div>
+    <div class="img-det mx-auto">
+        <div class="img1-set">
+            <img [src]="'assets/uploads/'+ cover[0]" />
+        </div>
+        <div class="img1-set">
+            <img [src]="'assets/uploads/' + cover[1]" />
+        </div>
+        <div class="img1-set">
+            <img [src]="'assets/uploads/' + cover[2]" />
+        </div>
+    </div>
+    <div class="aboutProject">
+      <h3>Introduction:</h3>
+      <div [innerHTML]="desc"></div>
+    </div>
+
+    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '100%' }" [numVisible]="5">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.itemImageSrc" style="width: 70%;" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+            <div class="grid grid-nogutter thumbnail justify-content-center">
+                <img [src]="item.thumbnailImageSrc" />
+            </div>
+        </ng-template>
+    </p-galleria>
+
+  </div>
+
+</div>
+
+<!--Start Loading Page-->
+<div class="loading-container">
+    <div class="loading">
+        <div class="circle-container">
+            <div class="circle"></div>
+        </div>
+    </div>
+</div>
+<!--End Loading Page-->
+
+<!---Confirmation Message--->
+<p-toast></p-toast>

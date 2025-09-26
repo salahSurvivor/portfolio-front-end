@@ -1,0 +1,15 @@
+<nav class="navbar navbarFFF navbar-light navbar-expand-md navigation-clean">
+    <div class="container"><a class="navbar-brand wow flip" routerLink="/portfolio"><em>S.N</em></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link {{portfolioActive}}" [routerLink]="['/portfolio']" >Portfolios</a></li>
+                <li class="nav-item"><a class="nav-link {{messagesActive}}" [routerLink]="['/messages']">Messages</a></li>
+                <li class="nav-item"><a class="nav-link {{cvActive}}" [routerLink]="['/cv']">Cv</a></li>
+            </ul>
+
+            <ul class="navbar-nav float-end">
+                <p-menubar [model]="items"></p-menubar>
+            </ul>
+        </div>
+    </div>
+</nav>

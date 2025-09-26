@@ -1,0 +1,1005 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import "primeicons/primeicons.css";
+/*@import '~primeng/resources/primeng.min.css';
+@import '~primeng/resources/themes/saga-blue/theme.css';*/
+
+body{
+    background:  #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*Start Our Navbar*/
+.img-cover{
+    background: url('assets/img/altumcode-U0tBTn8UR8I-unsplash.jpg') center center no-repeat fixed;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+}
+
+.navbar{
+    background: rgba(2 , 2, 2, 0.5);
+    height: 700px;
+}
+
+.fixed-top{
+    position: absolute;
+}
+
+.navbar .navbar-collapse{
+    margin: 0 10px;
+}
+
+.navbar .container-edit{
+    padding: 25px 0 25px 0;
+}
+
+.navbar-brand{
+    font-family: Shippori Antique B1;
+    color: #7fffd4;
+    font-weight: bold;
+    font-size: 2em;
+    margin: 0px 10px;
+}
+
+.navbar .navbar-brand:hover{
+    color: #dcfff3;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: rgb(241, 229, 213);
+}
+
+.find-me-on .myimg_circle{
+    background: rgba(127,255,212, 0.2);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    z-index: 99999;
+    position: relative;
+    bottom: 310px;
+}
+
+.find-me-on .myimg_circle img{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: relative;
+    top: 25px;
+    border: 10px solid #7fffd4;
+}
+
+.find-me-on .border-img-container{
+    background: rgb(95, 94, 94);
+    width: 305px;
+    height: 310px;
+    border-radius: 18px;
+    position: relative;
+    top: 150px;
+}
+
+.find-me-on{
+    width: 305px;
+    height: 460px;
+    position: relative;
+    top: 120px;
+}
+
+.find-me-on .border-img-container .my-info{
+    text-align: center;
+    position: relative; 
+    top: 160px;
+    z-index: 99999; 
+}
+
+.find-me-on .border-img-container .my-info .fa-brands{
+    color: #fff;
+    font-size: 1.2em;
+    margin: 20px 16px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+} 
+
+/*End Our Navbar*/
+
+/*Strat Our Portfolio*/
+
+.portfolio_container{
+    text-align: center;
+}
+
+.portfolio_container h3{
+    color: #7fffd4;
+    margin: 50px 0px;
+}
+
+.portfolio_container img{
+    width: 300px;
+    height: 500px;
+    background-size: cover;
+    border-radius: 16px;
+    border: 10px solid #000;
+    transition: all .3s ease;
+
+}
+
+.portfolio_container .about-the-site{
+    visibility: hidden;
+    position: relative;
+    color: #eee;
+    bottom: 355px;
+    width: 300px;
+    height: 210px;
+    padding: 16px;
+}
+
+.portfolio_container .about-the-site h4{
+    line-height: 50px;
+}
+
+.portfolio_container .container div:hover > img{
+    opacity: 0.2;
+}
+
+.portfolio_container .container div:hover > .about-the-site{
+    visibility: visible;
+}
+
+.portfolio_container .container .row .portfolio{
+    width: 300px;
+    height: 500px;
+    cursor: pointer;
+}
+
+/*End Our Portfolio*/
+
+/*Start About Me*/
+
+.about-me-container img{
+    width: 500px;
+}
+
+.about-me-container .about-me-sec{
+    margin: 35px 0;
+}
+
+.about-me-container h3{
+    margin: 70px 0;
+    width: 150px;
+}
+
+.about-me-container h4{
+    width: 310px;
+}
+
+.about-me-container h4, .about-me-container p{
+    margin-bottom: 40px;
+}
+
+.carte-visite{
+    background: #100c08;
+}
+
+.carte-visite p{
+    margin: 15px 0;
+    
+}
+
+.about-me-container a{
+    position: relative;
+    top: 50px;
+    color: #fff;
+}
+
+.green-button{
+    cursor: pointer;
+    background: #1c7a5b;
+    padding: 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.green-button:hover{
+    background: #34b489;
+}
+
+.about-me-container .two-section{
+    padding: 0 48px;
+}
+/*End About Me*/
+
+/*Start My Skills*/
+.my-skills-container h3{
+    margin: 150px 0 50px 0;
+}
+
+.my-skills-container .my-service{
+    background: #0d0d0d;
+    border: 5px solid #000;
+    margin: 16px 0;
+    padding: 16px;
+}
+
+.my-skills-container .my-service div{
+    margin-bottom: 20px;
+}
+
+.font-desc strong{
+    margin-bottom: 30px;
+}
+
+.my-skills-container .font i{
+    text-align: center;
+    font-size: 2.3em;
+}
+
+.font-desc-title{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.title-line{
+    border-bottom: 4px solid #34b489;
+    width: 58px;
+}
+/*End My Skills*/
+
+/*Start What I know*/
+.what-i-know{
+    margin: 70px 0;
+}
+
+.what-i-know .container{
+    background: #100c08;
+}
+
+.what-i-know .progress{
+    height: 35px;
+    width: 45%;
+    margin: 16px 25px;
+}
+
+.what-i-know .progress-bar{
+    text-align: left;
+    margin: -12px;
+    
+}
+
+.what-i-know .progress-bar label{
+    margin: 0 16px;
+}
+/*End What I know*/
+
+/*Start My Resume*/
+.my-resume-container h3, .contact-me-container h3{
+    margin: 50px 0;
+} 
+
+.my-resume-container .my-resume{
+    background: #0d0d0d;
+    margin: 16px 0;
+    padding: 25px;
+    text-align: center;
+}
+
+.my-resume-container .my-resume .title-info-back{
+    background: #121212;
+    padding: 16px;
+}
+
+.my-resume-container .my-resume .my-resume-title{
+    color: #1c7a5b;
+    background: #100c08;
+    padding: 8px 0;
+    margin: 30px 0;
+}
+/*End My Resume*/
+
+/*Start Contact Me*/
+.contact-me-container{
+    margin-top: 50px;
+}
+.contact-me-container h3, .contact-me-container .title-line{
+    text-align: center;
+}
+.contact-me-container .option{
+    background: #0d0d0d;
+    margin: 25px 0;
+    padding: 16px;
+}
+
+.contact-me-container .option .option-desc h4{
+    margin: 12px 0;
+}
+
+.contact-me-container .option .option-font i{
+    font-size: 2em;
+    margin: 22px;
+    color: #1c7a5b;
+    float: right;
+}
+
+.contact-me-container .contact-me input,
+.contact-me-container .contact-me textarea{
+    margin: 35px 0;
+    border: #000;
+    resize: none;
+}
+/*End Contact Me*/
+
+/*Start Copyright*/
+.copyright-container{
+    background: #100c08;
+    text-align: center;
+    margin-top: 70px;
+    padding: 12px;
+}
+
+.copyright-container i{
+    color: #1c7a5b;
+}
+/*End Copyright*/
+
+/*Start Loading Page*/
+.loading-container{
+    background: #151515;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+}
+
+.loading{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.circle-container{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 75px auto;
+    padding: 4px;
+    background: linear-gradient(0deg, rgba(63, 249, 220, 0.1) 33%, 
+    rgba(63, 249, 220, 1) 100%);
+    animation: spin .8s linear 0s infinite;
+}
+
+.circle{
+    background: #151515;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+@keyframes spin{
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(359deg);
+    }
+}
+
+/**********Portfolios***********/
+.portfolios .portfolio-section, .portfolios .filter-section{
+    display: inline-block;
+    background: rgba(94, 92, 92, 0.637);
+    color: #fff;
+    padding: 29px;
+    margin: 0 10px;
+    border-radius: 10px;
+}
+
+.portfolios .mywork{
+    position: relative;
+    top: 100px;
+    z-index: 999999999999999;
+}
+
+.portfolios .portfolio-section{
+    float: right;
+}
+
+.filter-section{
+    position: fixed;
+    top: 50%;
+    transform: translateY(-45%);
+    height: auto;
+}
+
+.portfolios .row {
+    --bs-gutter-x: -0.5rem;
+}
+
+.col-editS{
+    width: 25%;
+}
+
+.col-editL{
+    width: 70%;
+}
+
+.portfolios .cat{
+    margin: 25px 0;
+}
+
+.portfolios .cat label{
+    margin: 10px 0;
+}
+
+.portfolios .cat .input-radio{
+    float: right;
+}
+
+.project{
+    margin: 16px auto;
+}
+
+.project-img{
+    width: 270px;
+}
+
+.project-desc{
+    padding: 10px 0;
+}
+
+.portfolios .nav{
+    height: 80px;
+}
+
+.nav .collapse, .nav .navbar-brand{
+    margin-top: -32px;
+    line-height: 80px;
+}
+
+.navbar-brand{
+    color: #7fffd4;
+}
+
+.dest-right{
+    float: right;
+}
+
+.descmg h3:hover{
+    cursor: pointer;
+    color: #c7f5e6fd;
+}
+
+.img-card{
+    width: 250px;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.img-card img{
+    cursor: pointer;
+    transition: all .5s ease;
+    width: 250px;
+    border-radius: 12px;
+}
+
+.img-card img:hover{
+    width: 265px;
+}
+
+.navbar-dark .navbar-brand,
+.detPort .navbar-brand{
+    cursor: pointer;
+    color: #7fffd4;
+}
+
+.detPort .nav{
+    height: 70px;
+    margin: 0 auto;
+}
+
+.detPort .nav a{
+    margin: 0;
+}
+
+.det{
+    margin: 25px;
+    background: rgba(94, 92, 92, 0.144);
+    width: 95%;
+    border-radius: 17px;
+    padding: 16px 0;
+}
+
+.det .title{
+    margin: 15px auto;
+    text-align: center;
+    width: 85%;
+}
+
+.img-det{
+    position: relative;
+    top: 22px;
+    width: 900px;
+}
+
+.img-det .img1-set{
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.img1-set img{
+    width: 280px;
+    height: 400px;
+    border-radius: 15px;
+}
+
+.det .aboutProject{
+    margin: 50px auto;
+    width: 78%;
+}
+
+.det .aboutProject h3{
+    color: #7fffd4;
+}
+
+.thumbnail img{
+    left: -45px;
+    width: 200px;
+}
+
+.thumbnail{
+    margin: auto -15px;
+}
+
+.nav-item a{
+    cursor: pointer;
+}
+
+.portfolios{
+    position: absolute;
+    background: #eee;
+    color: #000;
+    width: 100%;
+    height: auto;
+}
+
+.textString input,
+.textString textarea,
+.textString .p-fileupload.p-fileupload-advanced.p-component {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.hidebtn p-button.p-element.ng-star-inserted{
+    display: none;
+}
+
+.bgEee{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #eee;
+}
+
+.addPort{
+    width: 50%;
+    margin: 25px auto;
+}
+
+.portfolios .navbar{
+    background: rgb(84 118 145);
+    height: 80px;
+}
+
+.portfolios .navbar-light .navbar-nav .nav-link{
+    color: rgb(255 251 251 / 55%);
+}
+
+.portfolios em, .portfolios .navbar-light .navbar-nav .nav-link.active{
+    color: #fff;
+}
+
+.portfolios .navbar-light .navbar-nav .nav-link:hover{
+    color: #eee;
+}
+
+.portfolios .p-datatable .p-datatable-thead > tr > th {
+    background: #bdcddd;
+}
+
+.portfolios .col-lg-4{
+    margin: 16px 0;
+    padding: 16px;
+}
+
+.p-table{
+    width: 60%;
+    margin: 45px auto;
+}
+
+.p-table p-button{
+    margin: auto 5px;
+}
+
+.headertable{
+    display: none;
+    background: red;
+}
+
+.btn-actions{
+    float: right;
+    margin: 55px;
+}
+
+.setcoladdsectioninput{
+    width: 60%;
+    margin-right: 5%;
+}
+
+.setcoladdsectionupload{
+    width: 35%;
+}
+
+.setcoladdsectionimg{
+    width: 25%;
+}
+
+.setcoladdsectionname{
+    width: 40%;
+}
+
+.setcoladdsectionbtn{
+    width: 25%;
+}
+
+/* Target the Angular Editor container */
+.angular-editor-wrapper {
+    /* Set a fixed width and height */
+    background: #fff;
+}
+  
+.angular-editor-wrapper.show-placeholder{
+    height: 300px;
+}
+
+.angular-editor-textarea {
+    /* Set a specific height and disable "height: auto" */
+    height: 300px !important;
+    resize: none;
+}
+
+.inputSection{
+    margin: 50px auto;
+}
+
+.p-fileupload.p-fileupload-basic.p-component.ng-star-inserted {
+    margin: 10px;
+}
+
+.card{
+    margin: 10px;
+}
+
+.imgupload{
+    width: 50px;
+    margin: 10px;
+}
+
+.upload-container p{
+    display: inline;
+}
+
+.changebg{
+    background: #000;
+    color: #fff;
+}
+
+.btn-plus .p-button.p-button-icon-only{
+    width: 100%;
+    margin: 0 5%;
+}
+
+.textStringdropDown{
+    margin: 10px 0;
+}
+
+.cat-col-l{
+    width: 90%;
+}
+
+.cat-col-s{
+    width: 10%;
+}
+
+.categoryInput{
+    width: 100%;
+}
+
+.col-lg-6 p-dropdown{
+    width: 100%;
+}
+ 
+.cat-col-l .p-dropdown{
+    width: 100%;
+}
+
+.p-chips.p-component {
+    width: 100%;
+    margin: 10px 0;
+}
+
+ul.p-inputtext.p-chips-multiple-container {
+    width: 100%;
+}
+
+.cvUpload{
+    margin: 50px auto;
+    width: 50%;
+}
+
+.myCv{
+    position: relative;
+    width: 100%;
+    height: 450px;
+}
+
+viewer-toolbar{
+    display: none;
+}
+
+.register-form{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.register-form h1{
+    color: #000;
+}
+
+.register-form label{
+    font-weight: 500;
+    font-size: 17px;
+    color: #000;
+    margin: 10px 0;
+}
+
+.register-form img{
+    position: absolute;
+    margin: 50px 100px;
+    width: 200px;
+    color: #000;
+}
+
+.register-form form{
+    margin: 130px auto;
+    border-radius: 8px;
+    width: 400px;
+    padding: 30px 20px 50px 20px;
+}
+
+.register-form .input-text{
+    margin: 25px 0;
+}
+
+.register-form .input-text input{
+    width: 350px;
+}
+
+.register-form input.btn.btn-primary{
+    align-items: center;
+    position: relative;
+    left: 110px;
+    width: 130px;
+    padding: 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    border-radius: 16px;
+}
+
+.p-menubar {
+    background: #547691;
+    border: 0;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover,
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link, .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover{
+    background: #547691;
+    color: #fff;
+}
+
+.p-menubar .p-menubar-button,
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text,
+.pi-user:before,
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text,
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-submenu-icon,
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-submenu-icon,
+.p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link .p-menuitem-text, .p-menubar .p-menubar-root-list > .p-menuitem.p-menuitem-active > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text,
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-submenu-icon,
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text{
+    color: #fff;
+}
+
+.changebg .navbar-dark .navbar-edit, .detPort .navbar-edit{
+    color: #fff;
+    font-size: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.portfolios .portnav{
+    background: #000000;
+    height: 80px;
+}
+
+.portfolios .portnav .navbar-nav li,
+.portfoldetPort .portnav .navbar-nav li{
+    float: right;
+}
+
+.li-container{
+    position: absolute;
+    right: 50px;
+    bottom: 20px;
+    font-size: 1em;
+}
+
+.portfoldetPort .navbar{
+    height: 80px;
+}
+
+.portfoldetPort .navbar-light .navbar-nav .nav-link{
+    color: rgb(255 251 251 / 55%);
+}
+
+.portfoldetPort em, .portfoldetPort .navbar-light .navbar-nav .nav-link.active{
+    color: #fff;
+}
+
+.portfoldetPort .navbar-light .navbar-nav .nav-link:hover{
+    color: #eee;
+}
+
+.navbar-brand em{
+    cursor: pointer;
+    color: #7fffd4;
+}
+
+.text-white .green-btn{
+    cursor: pointer;
+    background: #1c7a5b;
+    padding: 12px 48px;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 25px 0 0 0;
+}
+
+.text-white .green-btn:hover{
+    background: rgb(43, 149, 114);
+}
+
+.navbarFFF .navbar-brand em{
+    cursor: pointer;
+    color: #fff;
+}
+/*****Portfolio Details******/
+
+/************Media Query************/
+@media (max-width: 1000px){
+   /* body{
+        zoom: 150%;
+    }*/
+
+    .img-det{
+        display: none;
+    }
+
+    .portfolio_container .container .row .portfolio {
+        width: 80%;
+        height: auto;
+        margin: 0 auto -90px auto;
+    }
+
+    .portfolio_container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .col-editS{
+        width: 80%;
+    }
+
+    .col-editL{
+        width: 100%;
+    }
+
+    .thumbnail img{
+        width: 100px;
+    }
+    
+    .portfolio-section{
+        width: 100%;
+    }
+
+    .project-desc, .project-img{
+        width: 100%;
+    }
+
+    .img-card{
+        margin: auto;
+    }
+
+    .project .descmg{
+        width: 90%;
+        height: auto;
+        margin: 13px auto;
+    }
+
+    .portfolios .portfolio-section, .portfolios .filter-section {
+        position: relative;
+        width: 100%;
+        margin: 0;
+    }
+
+    .img-card{
+        width: 192px;
+        height: 192px;
+    }
+
+    .img-card img{
+        width: 192px;
+        height: 192px;
+    }
+
+    .img-card img:hover{
+        width: 205px;
+        height: 205px;
+    }
+
+    .filter-section{
+        position: relative;
+        top: 180px;
+    }
+
+    .fixSpace{
+        height: 45px;
+    }
+
+    .thumbnail img{
+        width: 70px;
+    }
+
+    .card{
+        width: 90%;
+        margin: auto;
+    }
+
+    .det{
+        margin: 20px auto;
+    }
+
+    .detPort em{
+        padding: 15px;
+    }
+
+    .setcoladdsectioninput{
+        width: 100%;
+        margin-right: 5%;
+    }
+    
+    .setcoladdsectionupload{
+        width: 100%;
+    }
+}
+/*End Loading Page*/
+
