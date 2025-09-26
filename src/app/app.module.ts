@@ -107,7 +107,11 @@ const appRoutes = [
     NgxExtendedPdfViewerModule,
     PdfViewerModule,
     MenubarModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: false })
+    RouterModule.forRoot(appRoutes, {
+      enableTracing: false,
+      useHash: false,          // 🔹 pour HTML5 routing (URLs normales)
+      scrollPositionRestoration: 'enabled' // 🔹 bonus: revient en haut à chaque navigation
+    })
   ],
   providers:[
               MessageService,
