@@ -5,12 +5,12 @@
             <div class="find-me-on mx-auto">  
               <div class="border-img-container">
                 <div class="my-info">
-                  <h3 class='mx-auto'>SALAHEDDINE NAJI cc</h3>
+                  <h3 class='mx-auto'>SALAHEDDINE NAJI</h3>
                   <label>Full Stack Developer</label>
                   <div class="icon">     
                     <a href="https://www.linkedin.com/in/salaheddine-naji-262502229/" target="_blank"><i class="fa-brands fa-linkedin hvr-pop"></i></a>
                     <a href="https://github.com/salahSurvivor" target="_blank"><i class="fa-brands fa-github hvr-pop"></i></a>
-                    <a href="https://twitter.com/salahSurvivor" target="_blank"><i class="fa-brands fa-twitter hvr-pop"></i></a>
+                    <!-- <a href="https://twitter.com/salahSurvivor" target="_blank"><i class="fa-brands fa-twitter hvr-pop"></i></a> -->
                   </div>
                 </div>
               </div>
@@ -42,27 +42,24 @@
     <!--End Our Navbar-->
     
     <!--Start Our Portfolio-->
-    <div class="portfolio_container d-block align-center" id="prt">
-        <h3>My Portfolio</h3>
-        <div class="container d-flex justify-content-center">
-          <div class="row">
-              <a *ngFor="let port of portAll | slice:0:3" (click)="setPostDet(port)" class='portfolio'>
-                  <div class="portfolio wow bounceInUp col-lg-4 col-md-6  col-sm-12 col-xs-12 mx-auto">
-                      <img [src]="'assets/uploads/'+ port.cover[1]"/>
-                      <div class="about-the-site mx-auto">
-                          <h4>{{ port.title }}</h4>
-                          <p>
-                            {{ port.resume }}
-                          </p>
-                      </div>
-                  </div>
-              </a>
-          </div>
+    <div class="portfolio_container" id="prt">
+      <h3>My Portfolio</h3>
+    
+      <div class="container">
+        <div class="row justify-content-center">
+          <a *ngFor="let port of portAll | slice:0:3" (click)="setPostDet(port)" class="portfolio-card">
+            <div class="portfolio-img-wrapper">
+              <img [src]="'assets/uploads/'+ port.cover[1]" alt="{{ port.title }}" />
+              <div class="portfolio-overlay">
+                <h4>{{ port.title }}</h4>
+                <p>{{ port.resume }}</p>
+              </div>
+            </div>
+          </a>
         </div>
-
-        <a href="javascript:void(0)" class="mx-auto text-white">
-          <label class="green-btn" (click)="switchPorftolio()">MORE</label>
-        </a>  
+      </div>
+    
+      <a href="javascript:void(0)" class="btn-more" (click)="switchPorftolio()">MORE</a>
     </div>
     <!--End Our Portfolio-->
     
@@ -81,8 +78,8 @@
               <div class="title-line"></div>
             </h4>
             <p>
-              i'm a Freelance Full Stack Developer, and i'm very passionate and 
-              dedicated to my work. with 3 years experience as a professional
+              i'm a Full Stack Developer, and i'm very passionate and 
+              dedicated to my work. with 2 years experience as a professional
               full stack developer, i have acquired the skills neceessary to build 
               great and premiun websites
             </p>
@@ -92,13 +89,12 @@
                   <div class="col-lg-6">
                         <p>Name : Salaheddine Naji</p>
                         <p>Phone : +212777372379</p>
-                        <p>Experience : 3 years</p>
+                        <p>Experience : 2 years</p>
                         <p>github : salahSurvivor</p>
                   </div>
                   <div class="col-lg-6">
-                        <p>Age : 22</p>
+                        <p>Age : 25</p>
                         <p>Adress : Rue Haha N98 bettana salé</p>
-                        <p>Freelance: Availlable</p>
                         <p>Linkedin : salaheddine naji</p>
                   </div>
                 </div>
@@ -204,17 +200,27 @@
                 </div>
                 <div class="progress col-lg-6 mx-auto">
                     <div class="progress-bar bg-primary" style="width: 90%" >
-                        <label>Reactjs</label>
+                        <label>ReactJs</label>
                     </div>
                 </div>
                 <div class="progress col-lg-6 mx-auto">
                     <div class="progress-bar bg-danger" style="width: 100%" >
-                        <label>Nodejs</label>
+                        <label>NodeJs</label>
                     </div>
                 </div>
                 <div class="progress col-lg-6 mx-auto">
                     <div class="progress-bar bg-success" style="width: 100%" >
-                        <label>Mangodb</label>
+                        <label>Mongodb</label>
+                    </div>
+                </div>
+                <div class="progress col-lg-6 mx-auto">
+                    <div class="progress-bar bg-primary" style="width: 100%" >
+                        <label>ExpressJs</label>
+                    </div>
+                </div>
+                <div class="progress col-lg-6 mx-auto">
+                    <div class="progress-bar bg-secondary" style="width: 100%" >
+                        <label>Mysql</label>
                     </div>
                 </div>
             </div>
@@ -224,33 +230,56 @@
     
     <!--Start My Resume-->
     <div class="my-resume-container" id="rsm">
-        <div class="container">
-            <div class="row">
-                <h3>
-                MY RESUME
-                <div class="title-line"></div>
-                </h3>
-                <div class="my-resume col-lg-6">
-                <div class="title-info-back wow bounce">
-                    <div class="my-resume-title">Baccalaureate En 2018-2019</div>
-                    <div class="my-resume-info">
-                    I got my baccalaureate en 2019 in moulay tayeb alaoui 
-                    high school in morocco in salé city
-                    </div>
-                </div>
-                </div>
-                <div class="my-resume col-lg-6">
-                <div class="title-info-back wow bounce">
-                    <div class="my-resume-title">Diploma En IT Development 2019-2021</div>
-                    <div class="my-resume-info">
-                    I got my diploma en IT Development in 2021 from Specialized 
-                    Institute of Applied Technology in morocco in salé city 
-                    </div>
-                </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <h3>
+        MY RESUME
+        <div class="title-line"></div>
+      </h3>
+
+      <!-- Baccalaureate -->
+      <div class="my-resume col-lg-6">
+        <div class="title-info-back wow bounce">
+          <div class="my-resume-title">Baccalaureate (2018-2019)</div>
+          <div class="my-resume-info">
+            I got my baccalaureate in 2019 from Moulay Tayeb Alaoui High School in Salé, Morocco.
+          </div>
         </div>
+      </div>
+
+      <!-- Diploma -->
+      <div class="my-resume col-lg-6">
+        <div class="title-info-back wow bounce">
+          <div class="my-resume-title">Diploma in IT Development (2019-2021)</div>
+          <div class="my-resume-info">
+            I earned my diploma in IT Development in 2021 from the Specialized Institute of Applied Technology in Salé, Morocco.
+          </div>
+        </div>
+      </div>
+
+      <!-- ALX Certificate -->
+      <div class="my-resume col-lg-6">
+        <div class="title-info-back wow bounce">
+          <div class="my-resume-title">ALX Software Engineering Program Certificate</div>
+          <div class="my-resume-info">
+            I earned a certificate from the ALX Software Engineering Program, specializing in Front-End Development.
+          </div>
+        </div>
+      </div>
+
+      <!-- Bachelor's Degree -->
+      <div class="my-resume col-lg-6">
+        <div class="title-info-back wow bounce">
+          <div class="my-resume-title">Bachelor's Degree in Computer Systems Engineering (2025)</div>
+          <div class="my-resume-info">
+            I obtained my bachelor's degree in Computer Systems Engineering in 2025.
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+
     <!--End My Resume-->
     
     <!--Start Contact Me-->
@@ -281,7 +310,7 @@
                     <div class="row">
                         <div class="option-desc col-lg-6">
                         <h4>EMAIL</h4>
-                        <p>njsalahsn@gmail.com</p>
+                        <p>salaheddinenaji2000@gmail.com</p>
                         </div>
                         <div class="option-font col-lg-6">
                         <i class="fa-solid fa-envelope-open-text"></i>
@@ -337,7 +366,7 @@
     <div class="copyright-container">
       <div class="wow rotateIn">
         salahSurvivor <i class="fa-solid fa-copyright"></i>
-        2022 Made By Love <i class="fa-solid fa-heart"></i>
+        2025 Made By Love <i class="fa-solid fa-heart"></i>
       </div>
     </div>
     <!--End Copyright-->
@@ -397,7 +426,7 @@
             <div class="project row" *ngFor="let portfolio of port">
                 <div class="col-lg-6 project-img col-md-12">
                     <div class="img-card">
-                        <img [src]="'assets/uploads/'+ portfolio.cover[0]" />
+                        <img (click)="setPostDet(portfolio)" [src]="'assets/uploads/'+ portfolio.cover[1]" />
                     </div>
                 </div>
                 <div class="col-lg-6 project-desc col-md-12">
@@ -433,9 +462,9 @@
 
   <div class="container-fuild det">
     <div class="title">
-      <h1>Posting App</h1>
+      <h1>{{ title }}</h1>
     </div>
-    <div class="img-det mx-auto">
+    <div *ngIf="title != 'Module billeterie'" class="img-det mx-auto">
         <div class="img1-set">
             <img [src]="'assets/uploads/'+ cover[0]" />
         </div>
@@ -450,6 +479,16 @@
       <h3>Introduction:</h3>
       <div [innerHTML]="desc"></div>
     </div>
+
+    <iframe *ngIf="title == 'Module billeterie'"
+      class="mx-auto block edit-post" 
+      width="850" 
+      height="500" 
+      src="https://www.youtube.com/embed/-xFBoObqOws?si=lbEuwdXhK2ej4fKs" 
+      title="YouTube video player" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
 
     <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '100%' }" [numVisible]="5">
         <ng-template pTemplate="item" let-item>

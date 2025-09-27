@@ -129,6 +129,15 @@ export class HomeComponent{
   }
 
   setPostDet(data): void{
+    if (data.title == 'Posting App') {
+      window.open('https://salahsurvivor.github.io/posting-app/', '_blank'); 
+      return;
+    }
+    else if (data.title == 'Educator') {
+      window.open('https://salahsurvivor.github.io/schoolWebsite.github.io/', '_blank');
+      return;
+    }
+
     this.switchPortfolioDetails();
     this.images = [];
 

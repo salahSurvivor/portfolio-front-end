@@ -110,54 +110,108 @@ a{
 /*End Our Navbar*/
 
 /*Strat Our Portfolio*/
-
-.portfolio_container{
-    text-align: center;
+/* Container */
+.portfolio_container {
+  text-align: center;
+  padding: 60px 20px;
+  cursor: pointer;
 }
 
-.portfolio_container h3{
-    color: #7fffd4;
-    margin: 50px 0px;
+.portfolio_container h3 {
+  color: #7fffd4;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.portfolio_container img{
-    width: 300px;
-    height: 500px;
-    background-size: cover;
-    border-radius: 16px;
-    border: 10px solid #000;
-    transition: all .3s ease;
-
+/* Portfolio cards */
+.portfolio-card {
+  display: block;
+  margin: 15px;
+  width: 300px;
+  height: 450px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform .3s ease;
 }
 
-.portfolio_container .about-the-site{
-    visibility: hidden;
-    position: relative;
-    color: #eee;
-    bottom: 355px;
-    width: 300px;
-    height: 210px;
-    padding: 16px;
+.portfolio-card:hover {
+  transform: translateY(-8px);
 }
 
-.portfolio_container .about-the-site h4{
-    line-height: 50px;
+/* Image wrapper */
+.portfolio-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.portfolio_container .container div:hover > img{
-    opacity: 0.2;
+.portfolio-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: opacity .3s ease;
 }
 
-.portfolio_container .container div:hover > .about-the-site{
-    visibility: visible;
+/* Overlay */
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  padding: 20px;
+  transition: opacity .3s ease;
 }
 
-.portfolio_container .container .row .portfolio{
-    width: 300px;
-    height: 500px;
-    cursor: pointer;
+.portfolio-overlay h4 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
 }
 
+.portfolio-overlay p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Hover effect */
+.portfolio-card:hover img {
+  opacity: 0.3;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+/* "More" button */
+.btn-more {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #00c9a7, #92fe9d);
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background .3s ease;
+}
+
+.btn-more:hover {
+  background: linear-gradient(90deg, #92fe9d, #00c9a7);
+}
 /*End Our Portfolio*/
 
 /*Start About Me*/
@@ -891,6 +945,11 @@ viewer-toolbar{
 .navbarFFF .navbar-brand em{
     cursor: pointer;
     color: #fff;
+}
+
+.edit-post {
+  display: block;
+  margin: 0 auto;
 }
 /*****Portfolio Details******/
 
