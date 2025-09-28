@@ -95,10 +95,10 @@ a{
     z-index: 99999; 
 }
 
-.edit-post {
-    align-items: center;
-    margin: auto;
-}
+/* .edit-post.iframe {
+    width: 850px;
+    height: auto;
+} */
 
 .find-me-on .border-img-container .my-info .fa-brands{
     color: #fff;

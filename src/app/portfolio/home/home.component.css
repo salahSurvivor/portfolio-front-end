@@ -1,0 +1,10 @@
+.edit-post {
+    width: 80%;
+    height: 500px;
+}
+
+@media (max-width: 100px) {
+    .edit-post {
+        height: 0
+    }
+}
