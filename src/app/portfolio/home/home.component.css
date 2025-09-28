@@ -3,6 +3,10 @@
     height: 500px;
 }
 
+.spinner-custom {
+    color: #7fffd4 !important;
+}
+
 @media (max-width: 100px) {
     .edit-post {
         height: 0

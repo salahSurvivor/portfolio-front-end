@@ -390,6 +390,10 @@ a{
     border-radius: 50%;
 }
 
+.spinner-custom {
+    color: #7fffd4 !important;
+}
+
 @keyframes spin{
     from{
         transform: rotate(0);

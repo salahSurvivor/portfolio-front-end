@@ -47,6 +47,14 @@
     
       <div class="container">
         <div class="row justify-content-center">
+              <!-- Spinner quand portAll est vide -->
+            <div *ngIf="!portAll || portAll.length === 0" class="text-center my-5">
+              <div class="spinner-border spinner-custom" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <p class="mt-2">Loading projects...</p>
+            </div>
+
           <a *ngFor="let port of portAll | slice:0:3" (click)="setPostDet(port)" class="portfolio-card">
             <div class="portfolio-img-wrapper">
               <img [src]="'assets/uploads/'+ port.cover[1]" alt="{{ port.title }}" />
@@ -423,21 +431,31 @@
     </div>
     <div class="portfolio-section col-editL">
         <div class="container-fuild">
-            <div class="project row" *ngFor="let portfolio of port">
-                <div class="col-lg-6 project-img col-md-12">
-                    <div class="img-card">
-                        <img (click)="setPostDet(portfolio)" [src]="'assets/uploads/'+ portfolio.cover[1]" />
-                    </div>
-                </div>
-                <div class="col-lg-6 project-desc col-md-12">
-                    <div class="descmg">
-                        <h3 (click)="setPostDet(portfolio)">{{portfolio.title}}</h3>
-                        <p>
-                          {{portfolio.resume}}
-                        </p>
-                    </div>
-                </div>
+            <!-- Spinner affiché quand port n'est pas encore chargé -->
+            <div class="d-flex justify-content-center align-items-center" *ngIf="!port || port.length === 0">
+              <div class="spinner-border spinner-custom" role="status" style="width: 4rem; height: 4rem;">
+                <span class="sr-only">Chargement...</span>
+              </div>
             </div>
+
+            <label *ngIf="port">
+              <div class="project row" *ngFor="let portfolio of port">
+                  <div class="col-lg-6 project-img col-md-12">
+                      <div class="img-card">
+                          <img (click)="setPostDet(portfolio)" [src]="'assets/uploads/'+ portfolio.cover[1]" />
+                      </div>
+                  </div>
+                  <div class="col-lg-6 project-desc col-md-12">
+                      <div class="descmg">
+                          <h3 (click)="setPostDet(portfolio)">{{portfolio.title}}</h3>
+                          <p>
+                            {{portfolio.resume}}
+                          </p>
+                      </div>
+                  </div>
+              </div>
+            </label>
+
         </div>
     </div>
 </div>
