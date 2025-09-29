@@ -38,7 +38,7 @@ export class DashboardService {
   }
 
   upload(data): Observable<any>{
-    return this.http.post<any>('http://localhost:3000/upload', data);
+    return this.http.post<any>( `${this.baseUrl}/upload`, data);
   }
 
   /***********Category Section***********/

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
-  private readonly loginApi = 'http://localhost:3000/users';
+  private readonly baseUrl = environment.apiUrl;
+  private readonly loginApi = `${this.baseUrl}/users/`;
 
   constructor(private readonly http: HttpClient,
               private readonly jwthelper: JwtHelperService){}
