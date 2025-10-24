@@ -137,6 +137,14 @@ export class HomeComponent{
       window.open('https://salahsurvivor.github.io/schoolWebsite.github.io/', '_blank');
       return;
     }
+    else if (data.title == 'Ecom merge') {
+      window.open('https://dynamic-sunburst-d50cc1.netlify.app', '_blank');
+      return;
+    }
+    else if (data.title == 'Nfc case') {
+      window.open('https://salahsurvivor.github.io/nfc-case', '_blank');
+      return;
+    }
 
     this.switchPortfolioDetails();
     this.images = [];

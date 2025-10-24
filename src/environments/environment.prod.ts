@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://portfolio-backend-x5yn.onrender.com'
+  apiUrl: 'https://ecommerge-backend-2.onrender.com'
 };
