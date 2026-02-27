@@ -1,14 +1,572 @@
-.edit-post {
-    width: 80%;
-    height: 500px;
-}
-
 .spinner-custom {
-    color: #7fffd4 !important;
+  color: #4fd1b5 !important;
 }
 
-@media (max-width: 100px) {
-    .edit-post {
-        height: 0
-    }
+.section-space {
+  padding: 88px 0;
+}
+
+.pf-home {
+  color: #e7eef7;
+  background: #07090d;
+}
+
+.pf-home a {
+  color: inherit;
+}
+
+.pf-hero {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(79, 209, 181, 0.24), transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(82, 144, 255, 0.16), transparent 45%),
+    linear-gradient(160deg, #0b1220 0%, #06080d 65%, #050608 100%);
+}
+
+.pf-nav {
+  background: transparent;
+  height: auto;
+  padding-top: 18px;
+}
+
+.pf-nav .navbar-brand em {
+  color: #80ffe1;
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+
+.pf-nav .nav-link {
+  color: #ccd7e5;
+  cursor: pointer;
+  font-size: 0.96rem;
+}
+
+.pf-nav .nav-link:hover,
+.pf-nav .nav-link:focus {
+  color: #ffffff;
+}
+
+.pf-hero-content {
+  padding-top: 72px;
+  padding-bottom: 56px;
+}
+
+.pf-eyebrow {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 6px 12px;
+  margin-bottom: 20px;
+  color: #b9cadf;
+  font-size: 0.86rem;
+}
+
+.pf-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.pf-lead {
+  max-width: 640px;
+  color: #b8c7da;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 28px;
+}
+
+.pf-cta-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.pf-btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pf-btn:hover,
+.pf-btn:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.pf-btn-primary {
+  color: #08221b;
+  background: linear-gradient(135deg, #6fffd8 0%, #48d7b5 100%);
+}
+
+.pf-btn-secondary {
+  color: #deebfa;
+  border: 1px solid rgba(223, 238, 255, 0.28);
+  background: transparent;
+}
+
+.pf-btn-ghost {
+  color: #b5f3de;
+  border: 1px solid rgba(111, 255, 216, 0.25);
+  background: rgba(111, 255, 216, 0.08);
+}
+
+.pf-social {
+  display: flex;
+  gap: 12px;
+}
+
+.pf-social a {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid rgba(202, 219, 238, 0.24);
+  color: #d5e3f4;
+}
+
+.pf-social a:hover,
+.pf-social a:focus {
+  border-color: rgba(111, 255, 216, 0.56);
+  color: #6fffd8;
+}
+
+.pf-profile-card {
+  border-radius: 18px;
+  padding: 24px;
+  background: rgba(7, 11, 18, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+.pf-avatar-wrap {
+  width: min(100%, 320px);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(135deg, #6fffd8, #5090ff);
+}
+
+.pf-avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pf-profile-card h2 {
+  font-size: 1.65rem;
+  margin-bottom: 6px;
+}
+
+.pf-profile-card p {
+  color: #b4c5da;
+  margin-bottom: 0;
+}
+
+.pf-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.pf-section-head h3 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.pf-link-btn {
+  border: 0;
+  color: #7dfbd8;
+  background: transparent;
+  font-weight: 600;
+}
+
+.pf-featured,
+.pf-services {
+  background: #0a101a;
+}
+
+.pf-project-card {
+  cursor: pointer;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #101a28;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pf-project-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.pf-card-body {
+  padding: 18px;
+}
+
+.pf-category {
+  font-size: 0.78rem;
+  color: #86d8ff;
+}
+
+.pf-card-body h4 {
+  font-size: 1.25rem;
+  margin: 8px 0 10px;
+}
+
+.pf-card-body p {
+  color: #b0c0d5;
+  line-height: 1.6;
+  min-height: 48px;
+}
+
+.pf-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.pf-badges span {
+  font-size: 0.75rem;
+  border-radius: 999px;
+  padding: 5px 10px;
+  color: #ceefff;
+  background: rgba(80, 144, 255, 0.2);
+}
+
+.pf-card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pf-mini-btn {
+  border: 1px solid rgba(111, 255, 216, 0.32);
+  color: #c9f8eb;
+  background: rgba(111, 255, 216, 0.07);
+  border-radius: 8px;
+  padding: 8px 11px;
+  font-size: 0.84rem;
+}
+
+.pf-about {
+  background: #070b12;
+}
+
+.pf-about .pf-about-row {
+  align-items: stretch;
+}
+
+.pf-about .pf-about-col {
+  display: flex;
+}
+
+.pf-about-media {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.pf-about-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pf-about-content {
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  border-radius: 14px;
+  background: #0f1826;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pf-about-content h3 {
+  margin-bottom: 16px;
+}
+
+.pf-about-content p {
+  color: #b2c0d1;
+  line-height: 1.75;
+}
+
+.pf-strengths {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.pf-strengths li {
+  color: #d8e4f1;
+}
+
+.pf-about-value {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pf-about-value h4 {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #8fe5ff;
+}
+
+.pf-value-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pf-value-grid article {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: grid;
+  gap: 4px;
+}
+
+.pf-value-grid strong {
+  font-size: 0.95rem;
+  color: #e5f5ff;
+}
+
+.pf-value-grid span {
+  font-size: 0.82rem;
+  color: #b0bfd1;
+  line-height: 1.4;
+}
+
+.pf-service-card {
+  height: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px;
+  background: #0d1725;
+}
+
+.pf-service-card i {
+  font-size: 1.5rem;
+  color: #65f6d2;
+  margin-bottom: 16px;
+}
+
+.pf-service-card h4 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.pf-service-cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.pf-contact {
+  background: #070b12;
+}
+
+.pf-credentials {
+  background: #09111c;
+}
+
+.pf-contact h3 {
+  margin-bottom: 16px;
+}
+
+.pf-contact p {
+  color: #b3c4d8;
+}
+
+.pf-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.pf-contact-list a {
+  color: #89deff;
+}
+
+.pf-contact-form {
+  padding: 24px;
+  border-radius: 14px;
+  background: #0f1826;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pf-contact-form label {
+  display: block;
+  margin: 0 0 8px;
+  color: #d6e1ed;
+}
+
+.pf-contact-form .form-control {
+  margin-bottom: 16px;
+  color: #ecf4ff;
+  background: #0a111c;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+.pf-contact-form .form-control:focus,
+.pf-btn:focus,
+.pf-mini-btn:focus,
+.pf-link-btn:focus,
+.pf-social a:focus {
+  outline: 2px solid #6fffd8;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.pf-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 20px 0;
+  text-align: center;
+  color: #9fb0c7;
+}
+
+.pf-projects-page {
+  min-height: 100vh;
+}
+
+.pf-projects-layout {
+  padding-top: 108px;
+  padding-bottom: 60px;
+}
+
+.pf-project-list-card {
+  margin-bottom: 22px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.pf-project-list-card .img-card {
+  width: 100%;
+  height: 260px;
+}
+
+.pf-project-list-card .img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pf-project-list-card .descmg {
+  padding: 6px 12px;
+}
+
+.pf-project-list-card .descmg h3 {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.pf-case-study-page .det {
+  width: min(1180px, 94%);
+  margin: 110px auto 30px;
+  padding: 24px 20px;
+}
+
+.case-study .case-item {
+  margin-bottom: 24px;
+}
+
+.case-study h4 {
+  color: #7fffd4;
+  margin-bottom: 10px;
+}
+
+.case-study ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.edit-post {
+  width: 80%;
+  height: 500px;
+}
+
+.pf-case-study-page .title {
+  text-align: center;
+}
+
+.pf-case-study-page .img-det {
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px auto 0;
+}
+
+.pf-case-study-page .img-det .img1-set {
+  margin: 0;
+}
+
+.pf-case-study-page .aboutProject {
+  width: min(900px, 100%);
+  margin: 44px auto 24px;
+}
+
+@media (max-width: 991.98px) {
+  .section-space {
+    padding: 64px 0;
+  }
+
+  .pf-about-media {
+    min-height: 320px;
+  }
+
+  .pf-about .pf-about-col {
+    display: block;
+  }
+
+  .pf-projects-layout {
+    padding-top: 96px;
+  }
+
+  .filter-section {
+    position: static;
+    width: 100%;
+    transform: none;
+    margin-bottom: 16px;
+  }
+
+  .portfolio-section {
+    width: 100%;
+  }
+
+  .pf-project-list-card .img-card {
+    height: 220px;
+  }
+
+  .pf-value-grid {
+    grid-template-columns: 1fr;
+  }
 }

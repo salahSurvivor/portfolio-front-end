@@ -1,545 +1,261 @@
-<div class="home" *ngIf="onHome">
-    <!--Start Our Navbar-->
-    <div class="navbar-container">
-        <div class="img-cover">
-            <div class="find-me-on mx-auto">  
-              <div class="border-img-container">
-                <div class="my-info">
-                  <h3 class='mx-auto'>SALAHEDDINE NAJI</h3>
-                  <label>Full Stack Developer</label>
-                  <div class="icon">     
-                    <a href="https://www.linkedin.com/in/salaheddine-naji-262502229/" target="_blank"><i class="fa-brands fa-linkedin hvr-pop"></i></a>
-                    <a href="https://github.com/salahSurvivor" target="_blank"><i class="fa-brands fa-github hvr-pop"></i></a>
-                    <!-- <a href="https://twitter.com/salahSurvivor" target="_blank"><i class="fa-brands fa-twitter hvr-pop"></i></a> -->
-                  </div>
-                </div>
-              </div>
-              <div class="myimg_circle mx-auto">
-                <img src="assets/img/me.jpeg" class='mx-auto d-block align-middle'/> 
-              </div>
-            </div>
-        </div>
-        
-          <nav class="navbar fixed-top navbar-dark navbar-expand-lg">
-              <div class="container container-edit fixed-top">
-                  <a class="navbar-brand wow flip" (click)="switchOnHome()"><em>S.N</em></a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">HOME</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" (click)="switchPorftolio()" id="prt">PORTFOLIO</a>
-                      </li>
-                    </ul>
-                  </div>
-              </div>
-          </nav> 
-    </div> 
-    <!--End Our Navbar-->
-    
-    <!--Start Our Portfolio-->
-    <div class="portfolio_container" id="prt">
-      <h3>My Portfolio</h3>
-    
+<div class="home pf-home">
+  <header class="pf-hero">
+    <nav class="navbar navbar-expand-lg pf-nav">
       <div class="container">
-        <div class="row justify-content-center">
-              <!-- Spinner quand portAll est vide -->
-            <div *ngIf="!portAll || portAll.length === 0" class="text-center my-5">
-              <div class="spinner-border spinner-custom" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-              <p class="mt-2">Loading projects...</p>
-            </div>
-
-          <a *ngFor="let port of portAll | slice:0:3" (click)="setPostDet(port)" class="portfolio-card">
-            <div class="portfolio-img-wrapper">
-              <img [src]="'assets/uploads/'+ port.cover[1]" alt="{{ port.title }}" />
-              <div class="portfolio-overlay">
-                <h4>{{ port.title }}</h4>
-                <p>{{ port.resume }}</p>
-              </div>
-            </div>
-          </a>
+        <a class="navbar-brand" (click)="switchOnHome()"><em>S.N</em></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" (click)="scrollToSection('about')">About</a></li>
+            <li class="nav-item"><a class="nav-link" (click)="switchPorftolio()">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" (click)="scrollToSection('services')">Services</a></li>
+            <li class="nav-item"><a class="nav-link" (click)="scrollToSection('contact')">Contact</a></li>
+          </ul>
         </div>
       </div>
-    
-      <a href="javascript:void(0)" class="btn-more" (click)="switchPorftolio()">MORE</a>
-    </div>
-    <!--End Our Portfolio-->
-    
-    <!--Start About Me-->
-    <div class="about-me-container" id="abt">
-      <h3 class="mx-auto">ABOUT ME
-        <div class="title-line"></div>
-      </h3>
-      <div class="container">
-        <div class="row">
-          <div class="about-me-sec col-lg-6 col-md-12 d-flex justify-content-center wow pulse">
-            <img src="assets/img/me.jpeg"/>
+    </nav>
+
+    <div class="container pf-hero-content">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <p class="pf-eyebrow">Available for freelance and full-time opportunities</p>
+          <h1>Full-Stack Developer</h1>
+          <p class="pf-lead">
+            I build scalable web applications, dashboards, and APIs that help teams automate operations and deliver measurable business outcomes.
+          </p>
+          <div class="pf-cta-group">
+            <button class="pf-btn pf-btn-primary" (click)="switchPorftolio()">View Projects</button>
+            <button class="pf-btn pf-btn-secondary" (click)="scrollToSection('contact')">Contact Me</button>
+            <button class="pf-btn pf-btn-ghost" (click)="downloadPdf()">Download CV</button>
           </div>
-          <div class="about-me-sec two-section col-lg-6 col-md-12 wow pulse">
-            <h4>Hello I Am Salaheddine Naji
-              <div class="title-line"></div>
-            </h4>
+          <div class="pf-social">
+            <a aria-label="GitHub profile" href="https://github.com/salahSurvivor" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+            <a aria-label="LinkedIn profile" href="https://www.linkedin.com/in/salaheddine-naji-262502229/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a aria-label="Send email" href="mailto:contactsalaheddinenaji@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="pf-profile-card">
+            <div class="pf-avatar-wrap">
+              <img src="assets/img/me.jpeg" alt="Salaheddine Naji portrait" />
+            </div>
+            <h2>Salaheddine Naji</h2>
+            <p>Full-Stack Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="pf-featured section-space" id="portfolio-preview">
+    <div class="container">
+      <div class="pf-section-head">
+        <h3>Featured Projects</h3>
+        <button class="pf-link-btn" (click)="switchPorftolio()">See all projects</button>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" *ngFor="let project of portAll | slice:0:3">
+          <article class="pf-project-card" (click)="openProject(project)">
+            <img [src]="'assets/uploads/' + project.cover[1]" [alt]="project.title + ' cover'" />
+            <div class="pf-card-body">
+              <span class="pf-category">{{ getCategoryName(project) }}</span>
+              <h4>{{ project.title }}</h4>
+              <p>{{ project.hook || project.resume }}</p>
+              <div class="pf-badges">
+                <span *ngFor="let tech of project.hashtags | slice:0:4">{{ tech }}</span>
+              </div>
+              <div class="pf-card-actions">
+                <button class="pf-mini-btn" (click)="openProject(project)">Case Study</button>
+                <button class="pf-mini-btn" *ngIf="project.liveDemo" (click)="openExternal(project.liveDemo, $event)">Live Demo</button>
+                <button class="pf-mini-btn" *ngIf="project.github" (click)="openExternal(project.github, $event)">GitHub</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pf-about section-space" id="about">
+    <div class="container">
+      <div class="row g-4 align-items-stretch pf-about-row">
+        <div class="col-lg-6 pf-about-col">
+          <div class="pf-about-media">
+            <img src="assets/img/me.jpeg" alt="Working at desk" />
+          </div>
+        </div>
+        <div class="col-lg-6 pf-about-col">
+          <div class="pf-about-content">
+            <h3>About Me</h3>
             <p>
-              I'm a Full Stack Developer, and i'm very passionate and 
-              dedicated to my work. with 2 years experience as a professional
-              full stack developer, i have acquired the skills neceessary to build 
-              great and premiun websites
+              I help businesses and founders build reliable digital products from idea to delivery.
+              My focus is full-stack web development, with strong experience in business modules, admin dashboards, and API-driven systems.
+              I prioritize clean architecture, maintainability, and user-focused interfaces.
             </p>
-            <div class="carte-visite">
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-6">
-                        <p>Name : Salaheddine Naji</p>
-                        <p>Phone : +212777372379</p>
-                        <p>Experience : 2 years</p>
-                        <p>github : salahSurvivor</p>
-                  </div>
-                  <div class="col-lg-6">
-                        <p>Age : 25</p>
-                        <p>Adress : Rue Haha N98 bettana salé</p>
-                        <p>Linkedin : salaheddine naji</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <a href="javascript:void(0)">
-              <label class="green-button" (click)="downloadPdf()">DOWNLOAD CV</label>
-            </a>  
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--End About Me-->
-
-    <!--Start My Skills-->
-    <div class="my-skills-container" id="skt">
-      <div class="container">
-        <div class="row">
-          <h3 class="service-brand">
-            MY SERVICE
-            <div class="title-line"></div>
-          </h3>
-          <div class="my-service col-lg-3">
-            <div class="font">
-              <i class="fa-solid fa-pen-clip"></i>
-            </div>
-            <div class="font-desc">
-              <div class="font-desc-title">Creative Design</div>
-              <p>
-                i can build any website you can imagine with the full power of HTML, 
-                CSS, and Javascript
-              </p>
-            </div>
-          </div>
-          <div class="my-service col-lg-3">
-            <div class="font">
-              <i class="fa-solid fa-file-pen"></i>
-            </div>
-            <div class="font-desc">
-              <div class="font-desc-title">Define</div>
-              <p>
-                I brainstorm possible design solutions to the identified problem.
-              </p>
-            </div>
-          </div>
-          <div class="my-service col-lg-3">
-            <div class="font">
-              <i class="fa-solid fa-code"></i>
-            </div>
-            <div class="font-desc">
-              <div class="font-desc-title">Clean Code</div>
-              <p>
-                I create clean code that any developer can understand in case 
-                they want to change something <br> in it
-              </p>
-            </div>
-          </div>
-          <div class="my-service col-lg-3">
-            <div class="font">
-              <i class="fa-solid fa-shapes"></i>
-            </div>
-            <div class="font-desc">
-              <div class="font-desc-title">Prototype</div>
-              <p>
-                I create high fidelity design and prototype the screens.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--End My Skills-->
-    
-    <!--Start What I know-->
-    <div class="what-i-know">
-        <div class="container">
-            <div class="row">
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 104%"  >
-                        <label>HTML</label>
-                    </div>
-                </div>
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-danger" style="width: 100%" >
-                        <label>Css</label>
-                    </div>
-                </div>
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-info" style="width: 100%" >
-                        <label>Java Script</label>
-                    </div>
-                </div>
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-warning" style="width: 100%" >
-                        <label>bootstrap</label>
-                    </div>
-                </div>
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-secondary" style="width: 100%" >
-                        <label>Angular</label>
-                    </div>
-                </div>
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-primary" style="width: 100%" >
-                        <label>ReactJs</label>
-                    </div>
-                </div>
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-danger" style="width: 100%" >
-                        <label>NodeJs</label>
-                    </div>
-                </div>
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-success" style="width: 100%" >
-                        <label>Mongodb</label>
-                    </div>
-                </div>
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-primary" style="width: 100%" >
-                        <label>ExpressJs</label>
-                    </div>
-                </div>
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-secondary" style="width: 100%" >
-                        <label>Mysql</label>
-                    </div>
-                </div>
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-primary" style="width: 100%" >
-                        <label>Laravel</label>
-                    </div>
-                </div>
-                <div class="progress col-lg-6 mx-auto">
-                    <div class="progress-bar bg-danger" style="width: 100%" >
-                        <label>Php</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--End What I know-->
-    
-    <!--Start My Resume-->
-    <div class="my-resume-container" id="rsm">
-  <div class="container">
-    <div class="row">
-      <h3>
-        MY RESUME
-        <div class="title-line"></div>
-      </h3>
-
-      <!-- Baccalaureate -->
-      <div class="my-resume col-lg-6">
-        <div class="title-info-back wow bounce">
-          <div class="my-resume-title">Baccalaureate (2018-2019)</div>
-          <div class="my-resume-info">
-            I got my baccalaureate in 2019 from Moulay Tayeb Alaoui High School in Salé, Morocco.
-          </div>
-        </div>
-      </div>
-
-      <!-- Diploma -->
-      <div class="my-resume col-lg-6">
-        <div class="title-info-back wow bounce">
-          <div class="my-resume-title">Diploma in IT Development (2019-2021)</div>
-          <div class="my-resume-info">
-            I earned my diploma in IT Development in 2021 from the Specialized Institute of Applied Technology in Salé, Morocco.
-          </div>
-        </div>
-      </div>
-
-      <!-- ALX Certificate -->
-      <div class="my-resume col-lg-6">
-        <div class="title-info-back wow bounce">
-          <div class="my-resume-title">ALX Software Engineering Program Certificate</div>
-          <div class="my-resume-info">
-            I earned a certificate from the ALX Software Engineering Program, specializing in Front-End Development.
-          </div>
-        </div>
-      </div>
-
-      <!-- Bachelor's Degree -->
-      <div class="my-resume col-lg-6">
-        <div class="title-info-back wow bounce">
-          <div class="my-resume-title">Bachelor's Degree in Computer Systems Engineering (2025)</div>
-          <div class="my-resume-info">
-            I obtained my bachelor's degree in Computer Systems Engineering in 2025.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    <!--End My Resume-->
-    
-    <!--Start Contact Me-->
-    <div class="contact-me-container" id="cntct">
-        <div class="container">
-            <div class="row">
-                <h3>
-                CONTACT ME
-                <div class="title-line mx-auto"></div>
-                </h3>
-                <div class="contact-me col-lg-6 mx-auto bounceIn">
-                <div class="option">
-                    <div class="container">
-                    <div class="row">
-                        <div class="option-desc col-lg-6">
-                        <h4>LOCATION</h4>
-                        <p>Rue Haha N98</p>
-                        <p>Bettana Salé</p>
-                        </div>
-                        <div class="option-font col-lg-6">
-                        <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="option">
-                    <div class="container">
-                    <div class="row">
-                        <div class="option-desc col-lg-6">
-                        <h4>EMAIL</h4>
-                        <p>salaheddinenaji2000@gmail.com</p>
-                        </div>
-                        <div class="option-font col-lg-6">
-                        <i class="fa-solid fa-envelope-open-text"></i>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="option">
-                    <div class="container">
-                    <div class="row">
-                        <div class="option-desc col-lg-6">
-                        <h4>PHONE</h4>
-                        <p>+212777372379</p>
-                        </div>
-                        <div class="option-font col-lg-6">
-                        <i class="fa-solid fa-phone"></i>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <div class="contact-me contact-me-edit col-lg-6 mx-auto bounceIn">
-                <input 
-                  type="text" 
-                  class="form-control bg-dark text-white" 
-                  placeholder="Name"
-                  [(ngModel)]="name"/>
-                <input 
-                  type="email" 
-                  class="form-control bg-dark text-white" 
-                  placeholder="name@example.com"
-                  [(ngModel)]="email">
-                <input 
-                  type="text" 
-                  class="form-control bg-dark text-white" 
-                  placeholder="Subject"
-                  [(ngModel)]="subject"/>
-                <textarea 
-                  class="form-control bg-dark text-white" 
-                  id="exampleFormControlTextarea1"
-                  placeholder="Your Message" rows="6"
-                  [(ngModel)]="message"></textarea>
-                <label 
-                  class="green-button"
-                  (click)="addMessage()">SEND MESSAGE</label>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--Start Contact Me-->
-    
-    <!--Start Copyright-->
-    <div class="copyright-container">
-      <div class="wow rotateIn">
-        salahSurvivor <i class="fa-solid fa-copyright"></i>
-        2025 Made By Love <i class="fa-solid fa-heart"></i>
-      </div>
-    </div>
-    <!--End Copyright-->
-</div>
-
-<div class="portfolios changebg" *ngIf="onPortfolio">
-  <nav class="navbar portnav navbar-light navbar-expand-md navigation-clean">
-    <div class="container"><a class="navbar-brand wow flip" (click)="switchOnHome()"><em>S.N</em></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navcol-1">
-            <ul class="navbar-nav">
-              <div class="li-container">
-                <li class="nav-item">
-                  <a class="nav-link {{portfolios}}" (click)="switchPorftolio()">PORTFOLIO</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link {{home}}" (click)="switchOnHome()">HOME</a>
-                </li>
-              </div>
+            <ul class="pf-strengths">
+              <li>ERP and business management modules</li>
+              <li>Dashboards and admin panels</li>
+              <li>REST API design and integration</li>
+              <li>E-commerce features and workflows</li>
             </ul>
-        </div>
-    </div>
-  </nav>
-
-    <div class="fixSpace"></div>
-    <div class="filter-section col-lg-6 col-editS">
-        <div class="filter">
-            <div class="cat">
-                <label>All</label>
-                <label class="input-radio">
-                    <p-radioButton 
-                      (click)="ngOnInit()"
-                      name="cat" value="All" 
-                      [(ngModel)]="cat" inputId="ingredient1"></p-radioButton>
-                </label>
-            </div>
-            <div class="cat" *ngFor="let ct of category | slice:0:3">
-                <label>{{ct.name}}</label>
-                <label class="input-radio">
-                    <p-radioButton 
-                      (click)="filterCat(ct)"
-                      name="cat" [value]="ct.name" 
-                      [(ngModel)]="cat" inputId="ingredient1"></p-radioButton>
-                </label>
-            </div>
-        </div>
-        <div class="filter">
-            <div class="cat">
-                <label class="d-block">Project Name</label>
-                <input 
-                  class="d-block" type="text" 
-                  pInputText [(ngModel)]="value" (ngModelChange)="filterCat('')" />
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-section col-editL">
-        <div class="container-fuild">
-            <!-- Spinner affiché quand port n'est pas encore chargé -->
-            <div class="d-flex justify-content-center align-items-center" *ngIf="!port || port.length === 0">
-              <div class="spinner-border spinner-custom" role="status" style="width: 4rem; height: 4rem;">
-                <span class="sr-only">Chargement...</span>
+            <div class="pf-about-value">
+              <h4>Why Work With Me</h4>
+              <div class="pf-value-grid">
+                <article>
+                  <strong>2+ Years</strong>
+                  <span>Hands-on full-stack delivery</span>
+                </article>
+                <article>
+                  <strong>5+ Projects</strong>
+                  <span>Showcased with real business use-cases</span>
+                </article>
+                <article>
+                  <strong>End-to-End</strong>
+                  <span>From UI to API and database</span>
+                </article>
+                <article>
+                  <strong>Client Focus</strong>
+                  <span>Clear communication and clean maintainable code</span>
+                </article>
               </div>
             </div>
-
-            <label *ngIf="port">
-              <div class="project row" *ngFor="let portfolio of port">
-                  <div class="col-lg-6 project-img col-md-12">
-                      <div class="img-card">
-                          <img (click)="setPostDet(portfolio)" [src]="'assets/uploads/'+ portfolio.cover[1]" />
-                      </div>
-                  </div>
-                  <div class="col-lg-6 project-desc col-md-12">
-                      <div class="descmg">
-                          <h3 (click)="setPostDet(portfolio)">{{portfolio.title}}</h3>
-                          <p>
-                            {{portfolio.resume}}
-                          </p>
-                      </div>
-                  </div>
-              </div>
-            </label>
-
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </section>
 
-<div class="portfoldetPort" *ngIf="onPortfolioDetails">
-  <nav class="navbar portnav navbar-light navbar-expand-md navigation-clean">
-    <div class="container"><a class="navbar-brand wow flip" (click)="switchOnHome()"><em>S.N</em></a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navcol-1">
-            <ul class="navbar-nav">
-              <div class="li-container">
-                <li class="nav-item">
-                  <a class="nav-link {{portfolios}}" (click)="switchPorftolio()">PORTFOLIO</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link {{home}}" (click)="switchOnHome()">HOME</a>
-                </li>
-              </div>
+  <section class="pf-services section-space" id="services">
+    <div class="container">
+      <div class="pf-section-head">
+        <h3>Services</h3>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <article class="pf-service-card">
+            <i class="fa-solid fa-laptop-code"></i>
+            <h4>Web Application Development</h4>
+          </article>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <article class="pf-service-card">
+            <i class="fa-solid fa-chart-line"></i>
+            <h4>Dashboards &amp; Admin Panels</h4>
+          </article>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <article class="pf-service-card">
+            <i class="fa-solid fa-gears"></i>
+            <h4>ERP / Business Modules</h4>
+          </article>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <article class="pf-service-card">
+            <i class="fa-solid fa-server"></i>
+            <h4>REST API Development</h4>
+          </article>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <article class="pf-service-card">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h4>E-commerce Features</h4>
+          </article>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <article class="pf-service-card pf-service-cta">
+            <h4>Let's work together</h4>
+            <button class="pf-btn pf-btn-primary" (click)="scrollToSection('contact')">Start a Project</button>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pf-credentials section-space" id="credentials">
+    <div class="container">
+      <div class="pf-section-head">
+        <h3>Experience, Education & Languages</h3>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <article class="pf-service-card">
+            <h4>Professional Experience</h4>
+            <p><strong>DIGIPARC</strong> - Full-Stack Developer</p>
+            <p>Jul 2023 - Sep 2025, Rabat</p>
+            <ul class="pf-strengths">
+              <li>Delivered custom business software modules</li>
+              <li>Built ticketing workflows with barcode validation</li>
+              <li>Improved quality with unit and integration testing</li>
             </ul>
+          </article>
         </div>
-    </div>
-  </nav>
-
-  <div class="container-fuild det">
-    <div class="title">
-      <h1>{{ title }}</h1>
-    </div>
-    <div *ngIf="title != 'Module billeterie'" class="img-det mx-auto">
-        <div class="img1-set">
-            <img [src]="'assets/uploads/'+ cover[0]" />
+        <div class="col-lg-4">
+          <article class="pf-service-card">
+            <h4>Education & Certifications</h4>
+            <ul class="pf-strengths">
+              <li>Bachelor's Degree, Computer Systems Engineering (SUPMTI, 2024-2025)</li>
+              <li>ALX Software Engineering Certificate - Front-End specialization (2023-2024)</li>
+              <li>Diploma in IT Development (ISTA, 2019-2021)</li>
+              <li>Baccalaureate in Physics (2018-2019)</li>
+            </ul>
+          </article>
         </div>
-        <div class="img1-set">
-            <img [src]="'assets/uploads/' + cover[1]" />
-        </div>
-        <div class="img1-set">
-            <img [src]="'assets/uploads/' + cover[2]" />
-        </div>
-    </div>
-    <div class="aboutProject">
-      <h3>Introduction:</h3>
-      <div [innerHTML]="desc"></div>
-    </div>
-
-    <iframe *ngIf="title == 'Module billeterie'"
-      class="mx-auto block edit-post iframe" 
-      src="https://www.youtube.com/embed/-xFBoObqOws?si=lbEuwdXhK2ej4fKs" 
-      title="YouTube video player" 
-      frameborder="0" 
-      allowfullscreen>
-    </iframe>
-
-    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '100%' }" [numVisible]="5">
-        <ng-template pTemplate="item" let-item>
-            <img [src]="item.itemImageSrc" style="width: 70%;" />
-        </ng-template>
-        <ng-template pTemplate="thumbnail" let-item>
-            <div class="grid grid-nogutter thumbnail justify-content-center">
-                <img [src]="item.thumbnailImageSrc" />
+        <div class="col-lg-4">
+          <article class="pf-service-card">
+            <h4>Tech Stack & Languages</h4>
+            <div class="pf-badges">
+              <span>Angular</span><span>React</span><span>Node.js</span><span>NestJS</span><span>Express.js</span>
+              <span>MongoDB</span><span>MySQL</span><span>SQL Server</span><span>Docker</span>
+              <span>Git/GitHub</span><span>GitLab</span><span>Agile/Scrum</span>
             </div>
-        </ng-template>
-    </p-galleria>
-
-  </div>
-
-</div>
-
-<!--Start Loading Page-->
-<div class="loading-container">
-    <div class="loading">
-        <div class="circle-container">
-            <div class="circle"></div>
+            <ul class="pf-strengths">
+              <li>Arabic: Native</li>
+              <li>French: Professional working level</li>
+              <li>English: Professional working level</li>
+            </ul>
+          </article>
         </div>
+      </div>
     </div>
-</div>
-<!--End Loading Page-->
+  </section>
 
-<!---Confirmation Message--->
+  <section class="pf-contact section-space" id="contact">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <h3>Contact</h3>
+          <p>Have a project in mind or need a reliable developer for your team? Let's connect.</p>
+          <ul class="pf-contact-list">
+            <li><strong>Email:</strong> <a href="mailto:contactsalaheddinenaji@gmail.com">contactsalaheddinenaji@gmail.com</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/salaheddine-naji-262502229/" target="_blank" rel="noopener noreferrer">salaheddine-naji</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/salahSurvivor" target="_blank" rel="noopener noreferrer">salahSurvivor</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-7">
+          <form class="pf-contact-form" (submit)="$event.preventDefault(); addMessage()">
+            <label for="name">Name</label>
+            <input id="name" type="text" class="form-control" [(ngModel)]="name" name="name" required />
+            <label for="email">Email</label>
+            <input id="email" type="email" class="form-control" [(ngModel)]="email" name="email" required />
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" class="form-control" [(ngModel)]="subject" name="subject" />
+            <label for="message">Message</label>
+            <textarea id="message" class="form-control" rows="6" [(ngModel)]="message" name="message" required></textarea>
+            <button class="pf-btn pf-btn-primary" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pf-footer">
+    <div class="container">
+      <p>Copyright {{ 2026 }} Salaheddine Naji.</p>
+    </div>
+  </footer>
+</div>
+
 <p-toast></p-toast>
+

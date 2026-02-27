@@ -1,0 +1,144 @@
+.spinner-custom {
+  color: #4fd1b5 !important;
+}
+
+.pf-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.pf-badges span {
+  font-size: 0.75rem;
+  border-radius: 999px;
+  padding: 5px 10px;
+  color: #ceefff;
+  background: rgba(80, 144, 255, 0.2);
+}
+
+.pf-card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pf-mini-btn {
+  border: 1px solid rgba(111, 255, 216, 0.32);
+  color: #c9f8eb;
+  background: rgba(111, 255, 216, 0.07);
+  border-radius: 8px;
+  padding: 8px 11px;
+  font-size: 0.84rem;
+}
+
+.pf-projects-page {
+  min-height: 100vh;
+}
+
+.pf-projects-layout {
+  padding-top: 108px;
+  padding-bottom: 60px;
+}
+
+.pf-project-list-card {
+  margin-bottom: 22px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.pf-project-list-card .img-card {
+  width: 100%;
+  height: 260px;
+}
+
+.pf-project-list-card .img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pf-project-list-card .descmg {
+  padding: 6px 12px;
+}
+
+.pf-project-list-card .descmg h3 {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.pf-case-study-page .det {
+  width: min(1180px, 94%);
+  margin: 110px auto 30px;
+  padding: 24px 20px;
+}
+
+.case-study .case-item {
+  margin-bottom: 24px;
+}
+
+.case-study h4 {
+  color: #7fffd4;
+  margin-bottom: 10px;
+}
+
+.case-study ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.edit-post {
+  width: 80%;
+  height: 500px;
+}
+
+.pf-case-study-page .title {
+  text-align: center;
+}
+
+.pf-case-study-page .img-det {
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px auto 0;
+}
+
+.pf-case-study-page .img-det .img1-set {
+  margin: 0;
+}
+
+.pf-case-study-page .aboutProject {
+  width: min(900px, 100%);
+  margin: 44px auto 24px;
+}
+
+.pf-mini-btn:focus {
+  outline: 2px solid #6fffd8;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+@media (max-width: 991.98px) {
+  .pf-projects-layout {
+    padding-top: 96px;
+  }
+
+  .filter-section {
+    position: static;
+    width: 100%;
+    transform: none;
+    margin-bottom: 16px;
+  }
+
+  .portfolio-section {
+    width: 100%;
+  }
+
+  .pf-project-list-card .img-card {
+    height: 220px;
+  }
+}

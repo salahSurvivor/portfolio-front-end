@@ -80,7 +80,7 @@ export class PortfoliosComponent{
   @ViewChild('fileUploadComponent2', { static: false })
   fileUploadComponent2!: FileUpload;
 
-  updateId: String;
+  updateId: string;
   title: string;
   desc: string;
   github: string;
@@ -91,8 +91,8 @@ export class PortfoliosComponent{
   selectedCat: Category;
   covers: any[] = [];
   images: any[] = [];
-  coversName: String[] = [];
-  imagesName: String[] = [];
+  coversName: string[] = [];
+  imagesName: string[] = [];
   imagesN: any[] = [];
   coversN: any[] = [];
 

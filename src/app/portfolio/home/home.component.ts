@@ -1,192 +1,160 @@
-import { Component } from '@angular/core';
-import { DashboardService } from 'src/app/services/dashboard.service';
+import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { Portfolio } from 'src/app/models/portfolio';
+import { CATEGORY_DATA, CV_FILE_NAME, PORTFOLIO_DATA } from 'src/app/data';
 import { Category } from 'src/app/models/category';
+import { Portfolio } from 'src/app/models/portfolio';
+import emailjs from '@emailjs/browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent{
+export class HomeComponent implements OnInit {
+  name = '';
+  email = '';
+  subject = '';
+  message = '';
 
-  /******Toggle Variables******/
-  onHome: boolean = true;
-  onPortfolio: boolean = false;
-  onPortfolioDetails: boolean = false;
+  portAll: Portfolio[] = [];
+  category: Category[] = [];
+  readonly portfolio = PORTFOLIO_DATA;
+  readonly catPortfolio = CATEGORY_DATA;
+  readonly cvFileName = CV_FILE_NAME;
 
-  /******Home Variables******/
-  cat: string = 'All';
-  value: string = '';
+  constructor(
+    private readonly messageService: MessageService,
+    private readonly titleService: Title,
+    private readonly metaService: Meta,
+    private readonly router: Router
+  ) {}
 
-  home: string = 'active';
-  portfolios: string;
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-  postId: String;
+  ngOnInit(): void {
+    this.category = [...this.catPortfolio];
+    this.portAll = [...this.portfolio];
+    this.setHomeMeta();
+  }
 
-  /*****Portfolio Info*****/
-  port: Portfolio[];
-  portAll: Portfolio[];
-  cv: Category[];
-  category: Category[];
-  selectCat: any;
-  title: string;
-  chips: String[];
-  cover: string[];
-  desc: string;
-  images: any[] = [];
-  responsiveOptions: any[] = [
-    {
-        breakpoint: '1024px',
-        numVisible: 5
-    },
-    {
-        breakpoint: '768px',
-        numVisible: 3
-    },
-    {
-        breakpoint: '560px',
-        numVisible: 1
+  switchOnHome(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  switchPorftolio(): void {
+    this.router.navigate(['/projects']);
+  }
+
+  openProject(project: Portfolio): void {
+    this.router.navigate(['/projects'], { queryParams: { id: project._id } });
+  }
+
+  scrollToSection(sectionId: string): void {
+    const section = document.getElementById(sectionId);
+    section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  openExternal(url: string, event?: Event): void {
+    event?.stopPropagation();
+    if (!url) {
+      return;
     }
-  ];
-
-  constructor(private readonly msg: DashboardService,
-              private messageService: MessageService){}
-
-  ngOnInit():void{
-    this.msg.readCategory().subscribe((vl) => this.category = vl);
-    this.msg.readPortfolio().subscribe((vl) => this.port = vl);
-    this.msg.readPortfolio().subscribe((vl) => this.portAll = vl)
-    this.msg.readCv().subscribe((vl) => this.cv = vl);
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 
-  /*****Toggle Functions*****/
-  switchOnHome(): void{
-    this.ngOnInit();
-    this.nullvars();
+  async addMessage(): Promise<void> {
+    const data = {
+      name: this.name,
+      email: this.email,
+      subject: this.subject,
+      message: this.message
+    };
 
-    this.home = 'active';
-    this.portfolios = '';
-    this.onHome = true;
-    this.onPortfolio = false;
-    this.onPortfolioDetails = false;
-  }
-  
-  switchPorftolio(): void{
-    this.ngOnInit();
-    this.nullvars();
+    const result = await this.sendEmailWithEmailJs(data);
+    if (result.ok) {
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message sent successfully.' });
+      this.resetContactForm();
+      return;
+    }
 
-    this.home = '';
-    this.portfolios = 'active';
-    this.onHome = false;
-    this.onPortfolio = true;
-    this.onPortfolioDetails = false;
-  }
-
-  switchPortfolioDetails(): void{
-    this.ngOnInit();
-    this.nullvars();
-
-    this.home = '';
-    this.portfolios = '';
-    this.onHome = false;
-    this.onPortfolio = false;
-    this.onPortfolioDetails = true;
+    const missing = this.getMissingEmailJsConfig();
+    this.messageService.add({
+      severity: 'error',
+      summary: 'Error',
+      detail: missing.length
+        ? `EmailJS not configured: missing ${missing.join(', ')}`
+        : `Email delivery failed: ${result.error || 'Check template variables and allowed domains.'}`
+    });
   }
 
-  nullvars(): void{
-    this.cat = 'All';
-    this.value = '';
+  private async sendEmailWithEmailJs(data: { name: string; email: string; subject: string; message: string; }): Promise<{ ok: boolean; error?: string; }> {
+    const { serviceId, templateId, publicKey } = environment.emailjs;
+    if (!serviceId || !templateId || !publicKey) {
+      return { ok: false, error: 'Missing service/template/public key' };
+    }
+
+    try {
+      await emailjs.send(serviceId, templateId, {
+        from_name: data.name,
+        from_email: data.email,
+        subject: data.subject,
+        message: data.message,
+        to_email: 'contactsalaheddinenaji@gmail.com',
+        reply_to: data.email
+      }, {
+        publicKey
+      });
+      return { ok: true };
+    } catch (err: any) {
+      console.error('EmailJS error:', err);
+      const status = err?.status ? `status ${err.status}` : '';
+      const text = err?.text || err?.message || 'Unknown EmailJS error';
+      return { ok: false, error: [status, text].filter(Boolean).join(' - ') };
+    }
+  }
+
+  private getMissingEmailJsConfig(): string[] {
+    const missing: string[] = [];
+    if (!environment.emailjs.serviceId) missing.push('serviceId');
+    if (!environment.emailjs.templateId) missing.push('templateId');
+    if (!environment.emailjs.publicKey) missing.push('publicKey');
+    return missing;
+  }
+
+  private resetContactForm(): void {
     this.name = '';
     this.email = '';
     this.subject = '';
     this.message = '';
   }
 
-  addMessage(): void{
-    const data = {
-      name: this.name,
-      email: this.email,
-      subject: this.subject,
-      message: this.message
-    }
-
-    this.msg.createMessage(data).subscribe(
-      (res) => {
-        this.msg.sendEmail(data).subscribe();
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Added With Success!!' });
-        this.ngOnInit();
-        this.nullvars();
-      },
-      (err) => {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: err.message });
-      }
-    )
+  getCategoryName(project: Portfolio): string {
+    const categoryId = typeof project.category === 'string'
+      ? project.category
+      : project.category?._id || '';
+    return this.category.find((cat) => cat._id === categoryId)?.name || 'Project';
   }
 
-  setPostDet(data): void{
-    if (data.title == 'Posting App') {
-      window.open('https://salahsurvivor.github.io/posting-app/', '_blank'); 
-      return;
-    }
-    else if (data.title == 'Educator') {
-      window.open('https://salahsurvivor.github.io/schoolWebsite.github.io/', '_blank');
-      return;
-    }
-    else if (data.title == 'Ecom merge') {
-      window.open('https://dynamic-sunburst-d50cc1.netlify.app', '_blank');
-      return;
-    }
-    else if (data.title == 'Nfc case') {
-      window.open('https://salahsurvivor.github.io/nfc-case', '_blank');
-      return;
-    }
-
-    this.switchPortfolioDetails();
-    this.images = [];
-
-    this.title = data.title;
-    this.cover = data.cover;
-    this.desc = data.description;
-
-    for(let img of data.images){
-      const dt = {
-        itemImageSrc: 'assets/uploads/'+ img,
-        thumbnailImageSrc: 'assets/uploads/'+ img,
-        alt: 'Description for Image 1',
-        title: 'Title 1'
-      }
-
-      this.images.push(dt);
-    }
-  }
-
-  filterCat(cat): void{
-    //console.log(this.chips);
-    if(cat)
-      this.selectCat = cat._id;
-    if(this.cat === 'All')
-      this.selectCat = '';
-
-    this.msg.readPortfolio()
-      .subscribe((value) => this.port = value.filter((vl) =>(
-        vl.category.toString().includes(this.selectCat) &&
-        vl.title.includes(this.value)
-      )));
-  }
-
-  downloadPdf(){
-    const pdfUrl = 'assets/uploads/'+ this.cv[0].name; // Replace with the path to your PDF file
-    const pdfName = this.cv[0].name; // Replace with your desired PDF file name
-
-    //console.log(this.port);
+  downloadPdf(): void {
     const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = pdfName.toString();
+    link.href = `assets/uploads/${this.cvFileName}`;
+    link.download = this.cvFileName;
     link.click();
+  }
+
+  private setHomeMeta(): void {
+    this.titleService.setTitle('Salaheddine Naji | Full-Stack Developer');
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Full-Stack Developer specialized in Angular and Node.js, building business-focused web apps, dashboards, APIs, and ERP modules.'
+    });
+    this.metaService.updateTag({ property: 'og:title', content: 'Salaheddine Naji | Full-Stack Developer' });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: 'Professional portfolio featuring Angular and Node.js projects, case studies, and freelance services.'
+    });
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ property: 'og:image', content: 'assets/img/cover.jpg' });
   }
 }

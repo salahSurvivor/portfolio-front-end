@@ -1,0 +1,166 @@
+<div class="portfolios changebg pf-projects-page" *ngIf="showProjectList">
+  <nav class="navbar portnav navbar-light navbar-expand-md navigation-clean">
+    <div class="container">
+      <a class="navbar-brand" (click)="goHome()"><em>S.N</em></a>
+      <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+        <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="navbar-nav">
+          <div class="li-container">
+            <li class="nav-item"><a class="nav-link {{portfolios}}" (click)="goProjects()">PORTFOLIO</a></li>
+            <li class="nav-item"><a class="nav-link {{home}}" (click)="goHome()">HOME</a></li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pf-projects-layout container-fluid">
+    <aside class="filter-section col-lg-3 col-editS">
+      <div class="filter">
+        <div class="cat">
+          <label>All</label>
+          <label class="input-radio">
+            <p-radioButton (click)="ngOnInit()" name="cat" value="All" [(ngModel)]="cat" inputId="cat-all"></p-radioButton>
+          </label>
+        </div>
+        <div class="cat" *ngFor="let ct of category">
+          <label>{{ct.name}}</label>
+          <label class="input-radio">
+            <p-radioButton (click)="filterCat(ct)" name="cat" [value]="ct.name" [(ngModel)]="cat" [inputId]="ct._id"></p-radioButton>
+          </label>
+        </div>
+      </div>
+      <div class="filter">
+        <div class="cat">
+          <label class="d-block">Project Name</label>
+          <input class="d-block" type="text" pInputText [(ngModel)]="value" (ngModelChange)="filterCat('')" />
+        </div>
+      </div>
+    </aside>
+
+    <section class="portfolio-section col-editL">
+      <div class="container-fuild">
+        <div class="d-flex justify-content-center align-items-center" *ngIf="!port || port.length === 0">
+          <div class="spinner-border spinner-custom" role="status" style="width: 4rem; height: 4rem;">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+
+        <article class="pf-project-list-card" *ngFor="let project of port">
+          <div class="row g-0">
+            <div class="col-lg-5">
+              <div class="img-card">
+                <img [src]="'assets/uploads/'+ project.cover[0]" [alt]="project.title + ' preview'" (click)="setPostDet(project)" />
+              </div>
+            </div>
+            <div class="col-lg-7 project-desc">
+              <div class="descmg">
+                <h3 (click)="setPostDet(project)">{{ project.title }}</h3>
+                <p>{{ project.hook || project.resume }}</p>
+                <div class="pf-badges">
+                  <span *ngFor="let tech of project.hashtags">{{ tech }}</span>
+                </div>
+                <div class="pf-card-actions">
+                  <button class="pf-mini-btn" (click)="setPostDet(project)">Case Study</button>
+                  <button class="pf-mini-btn" *ngIf="project.liveDemo" (click)="openExternal(project.liveDemo, $event)">Live Demo</button>
+                  <button class="pf-mini-btn" *ngIf="project.github" (click)="openExternal(project.github, $event)">GitHub</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="portfoldetPort pf-case-study-page" *ngIf="!showProjectList">
+  <nav class="navbar portnav navbar-light navbar-expand-md navigation-clean">
+    <div class="container">
+      <a class="navbar-brand" (click)="goHome()"><em>S.N</em></a>
+      <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2">
+        <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navcol-2">
+        <ul class="navbar-nav">
+          <div class="li-container">
+            <li class="nav-item"><a class="nav-link {{portfolios}}" (click)="goProjects()">PORTFOLIO</a></li>
+            <li class="nav-item"><a class="nav-link {{home}}" (click)="goHome()">HOME</a></li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container det">
+    <div class="title">
+      <h1>{{ selectedProject?.title }}</h1>
+      <p>{{ selectedProject?.hook || selectedProject?.resume }}</p>
+    </div>
+
+    <div class="img-det mx-auto" *ngIf="selectedProject?.cover?.length">
+      <div class="img1-set" *ngFor="let item of selectedProject?.cover | slice:0:3">
+        <img [src]="'assets/uploads/' + item" [alt]="selectedProject?.title + ' screenshot'" />
+      </div>
+    </div>
+
+    <section class="aboutProject case-study" *ngIf="selectedProject?.caseStudy as cs">
+      <h3>Case Study</h3>
+      <div class="case-item">
+        <h4>Problem</h4>
+        <p>{{ cs.problem }}</p>
+      </div>
+      <div class="case-item">
+        <h4>Solution</h4>
+        <p>{{ cs.solution }}</p>
+      </div>
+      <div class="case-item">
+        <h4>Key Features</h4>
+        <ul>
+          <li *ngFor="let feature of cs.features">{{ feature }}</li>
+        </ul>
+      </div>
+      <div class="case-item">
+        <h4>Tech Stack</h4>
+        <div class="pf-badges">
+          <span *ngFor="let tech of cs.techStack">{{ tech }}</span>
+        </div>
+      </div>
+      <div class="case-item">
+        <h4>Results / Impact</h4>
+        <p>{{ cs.impact }}</p>
+      </div>
+      <div class="pf-card-actions">
+        <button class="pf-mini-btn" *ngIf="selectedProject?.liveDemo" (click)="openExternal(selectedProject?.liveDemo || '')">Live Demo</button>
+        <button class="pf-mini-btn" *ngIf="selectedProject?.github" (click)="openExternal(selectedProject?.github || '')">GitHub</button>
+      </div>
+    </section>
+
+    <iframe
+      *ngIf="selectedProject?.title === 'Ticketing Module'"
+      class="mx-auto block edit-post iframe"
+      [src]="safeDemoUrl"
+      title="Project demo video"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+
+    <p-galleria
+      *ngIf="images.length"
+      [value]="images"
+      [responsiveOptions]="responsiveOptions"
+      [containerStyle]="{ 'max-width': '100%' }"
+      [numVisible]="5">
+      <ng-template pTemplate="item" let-item>
+        <img [src]="item.itemImageSrc" [alt]="selectedProject?.title + ' gallery image'" style="width: 70%;" />
+      </ng-template>
+      <ng-template pTemplate="thumbnail" let-item>
+        <div class="grid grid-nogutter thumbnail justify-content-center">
+          <img [src]="item.thumbnailImageSrc" [alt]="selectedProject?.title + ' thumbnail'" />
+        </div>
+      </ng-template>
+    </p-galleria>
+  </div>
+</div>

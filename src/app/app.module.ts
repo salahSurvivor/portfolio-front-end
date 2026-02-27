@@ -40,6 +40,7 @@ import { MessagesComponent } from './dashbord/messages/messages.component';
 import { CvComponent } from './dashbord/cv/cv.component';
 import { LoginComponent } from './dashbord/login/login.component';
 import { AutGuard } from './guards/aut.guard';
+import { ProjectsComponent } from './portfolio/projects/projects.component';
 
 const appRoutes = [
   {
@@ -49,6 +50,10 @@ const appRoutes = [
   {
     path: 'image',
     component: MultipleImageComponent
+  },
+  {
+    path: 'projects',
+    component: ProjectsComponent
   },
   {
     path: 'portfolio',
@@ -81,6 +86,7 @@ const appRoutes = [
     MessagesComponent,
     CvComponent,
     LoginComponent,
+    ProjectsComponent,
   ],
   imports: [
     BrowserModule,
